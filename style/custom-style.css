@@ -9,8 +9,8 @@
   -webkit-border-radius: 150px;
   -moz-border-radius: 150px;
   background: url(../images/dave-s.png) no-repeat;
-  margin: 15px;
-  box-shadow: 0 0 8px #057d9f;
-  -webkit-box-shadow: 0 0 8px #057d9f;
-  -moz-box-shadow: 0 0 8px #057d9f;
+  margin: 15px 0 0 0;
+  box-shadow: 0 0 8px black;
+  -webkit-box-shadow: 0 0 8px black;
+  -moz-box-shadow: 0 0 8px black;
 }
