@@ -1,0 +1,17 @@
+{
+  "name": "personalsite",
+  "version": "0.0.0",
+  "homepage": "http://www.swamwithturtles.com",
+  "authors": [
+    "Dave Simons <david.simons@softwire.com>"
+  ],
+  "description": "Dave S Personal Site (SwamWithTurtles.com)",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
