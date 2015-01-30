@@ -1,10 +1,28 @@
 @backgroundColor: #FF8100;
 @lightSecondaryColor: #FFB300;
-@darksecondaryColor: #FF2300;
-@highlightColor: #057D9F;
+@darkSecondaryColor: #004081;
+@highlightColor: #ffe9dd;
 
 .bg-color {
-    background-color: @backgroundColor;
+  background-color: @backgroundColor;
+}
+
+.menu-item {
+  background: @backgroundColor;
+  text-align: center;
+
+  a {
+    color: @darkSecondaryColor;
+
+    &:hover {
+      background: @highlightColor;
+    }
+
+    &:active {
+      background: @highlightColor;
+      color: @backgroundColor;
+    }
+  }
 }
 
 #circular-avatar {

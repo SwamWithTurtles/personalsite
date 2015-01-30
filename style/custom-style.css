@@ -1,6 +1,19 @@
-/* CSS crunched with Crunch - http://crunchapp.net/ */
 .bg-color {
   background-color: #ff8100;
+}
+.menu-item {
+  background: #ff8100;
+  text-align: center;
+}
+.menu-item a {
+  color: #004081;
+}
+.menu-item a:hover {
+  background: #ffe9dd;
+}
+.menu-item a:active {
+  background: #ffe9dd;
+  color: #ff8100;
 }
 #circular-avatar {
   width: 300px;
