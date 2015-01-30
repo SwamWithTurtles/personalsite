@@ -1,11 +1,11 @@
 .title-bar {
   background-color: #ff8100;
   vertical-align: middle;
-  border-bottom: 1px solid #004081;
   text-align: center;
 }
 .title-bar.avatar {
   align-content: center;
+  border-bottom: 1px solid #004081;
 }
 .menu-item {
   background: #ff8100;
@@ -25,5 +25,8 @@
 @media screen and (min-width: 48em) {
   .menu-item {
     border: 0;
+  }
+  .title-bar {
+    border-bottom: 1px solid #004081;
   }
 }
