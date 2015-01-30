@@ -4,6 +4,9 @@
   border-bottom: 1px solid #004081;
   text-align: center;
 }
+.title-bar.avatar {
+  align-content: center;
+}
 .menu-item {
   background: #ff8100;
   text-align: center;
