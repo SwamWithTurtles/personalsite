@@ -3,8 +3,12 @@
 @darkSecondaryColor: #004081;
 @highlightColor: #ffe9dd;
 
-.bg-color {
+.title-bar {
   background-color: @backgroundColor;
+  vertical-align: middle;
+
+  border-bottom: 1px solid @darkSecondaryColor;
+
 }
 
 .menu-item {
@@ -13,6 +17,7 @@
 
   a {
     color: @darkSecondaryColor;
+
 
     &:hover {
       background: @highlightColor;
@@ -23,17 +28,4 @@
       color: @backgroundColor;
     }
   }
-}
-
-#circular-avatar {
-  width: 300px;
-  height: 300px;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
-  background: url(../images/dave-s.png) no-repeat;
-  margin: 15px 0 0 0;
-  box-shadow: 0 0 8px black;
-  -webkit-box-shadow: 0 0 8px black;
-  -moz-box-shadow: 0 0 8px black;
 }
