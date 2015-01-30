@@ -8,12 +8,14 @@
   vertical-align: middle;
 
   border-bottom: 1px solid @darkSecondaryColor;
+  text-align: center;
 
 }
 
 .menu-item {
   background: @backgroundColor;
   text-align: center;
+  border-bottom: 1px solid @darkSecondaryColor;
 
   a {
     color: @darkSecondaryColor;
@@ -27,5 +29,12 @@
       background: @highlightColor;
       color: @backgroundColor;
     }
+  }
+}
+
+@media screen and (min-width: 48em) {
+
+  .menu-item {
+    border: 0;
   }
 }

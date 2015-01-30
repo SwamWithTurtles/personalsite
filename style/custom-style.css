@@ -2,10 +2,12 @@
   background-color: #ff8100;
   vertical-align: middle;
   border-bottom: 1px solid #004081;
+  text-align: center;
 }
 .menu-item {
   background: #ff8100;
   text-align: center;
+  border-bottom: 1px solid #004081;
 }
 .menu-item a {
   color: #004081;
@@ -16,4 +18,9 @@
 .menu-item a:active {
   background: #ffe9dd;
   color: #ff8100;
+}
+@media screen and (min-width: 48em) {
+  .menu-item {
+    border: 0;
+  }
 }
