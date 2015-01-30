@@ -5,6 +5,8 @@
 }
 .title-bar.avatar {
   align-content: center;
+}
+.title-bar.biog {
   border-bottom: 1px solid #004081;
 }
 .menu-item {
@@ -26,7 +28,7 @@
   .menu-item {
     border: 0;
   }
-  .title-bar {
+  .avatar {
     border-bottom: 1px solid #004081;
   }
 }
