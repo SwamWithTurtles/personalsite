@@ -3,6 +3,12 @@
 @darkSecondaryColor: #FF7700;
 @highlightColor: #ffe9dd;
 
+@titleBarHeight: 90px;
+
+.page-content {
+  width: 10px;
+}
+
 .title-bar {
   background-color: @backgroundColor;
   vertical-align: middle;
@@ -11,14 +17,17 @@
 
   text-align: center;
 
+  height: @titleBarHeight;
+
+
   .avatar {
-    height: 180px;
     background: url("../images/claw.png") no-repeat center;
   }
 
   &.biog {
     border-bottom: 1px solid @lightSecondaryColor;
     display: inline-block;
+
   }
 
 }
@@ -28,19 +37,21 @@
   text-align: center;
   border-bottom: 1px solid @lightSecondaryColor;
 
+  vertical-align: middle;
+
+
+
+  &:hover {
+    background: @lightSecondaryColor;
+
+    a {color: @backgroundColor;
+    }
+
+  }
+
   a {
     color: @lightSecondaryColor;
-
-
-    &:hover {
-      background: @lightSecondaryColor;
-      color: @backgroundColor;
-    }
-
-    &:active {
-      background: @lightSecondaryColor;
-      color: @backgroundColor;
-    }
+    text-decoration: none;
   }
 }
 
@@ -48,6 +59,8 @@
 
   .menu-item {
     border: 0;
+
+    line-height: @titleBarHeight;
   }
 
 

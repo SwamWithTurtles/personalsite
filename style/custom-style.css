@@ -1,11 +1,14 @@
+.page-content {
+  width: 10px;
+}
 .title-bar {
   background-color: #000000;
   vertical-align: middle;
   color: #ffbb00;
   text-align: center;
+  height: 90px;
 }
 .title-bar .avatar {
-  height: 180px;
   background: url("../images/claw.png") no-repeat center;
 }
 .title-bar.biog {
@@ -16,21 +19,22 @@
   background: #000000;
   text-align: center;
   border-bottom: 1px solid #ffbb00;
+  vertical-align: middle;
+}
+.menu-item:hover {
+  background: #ffbb00;
+}
+.menu-item:hover a {
+  color: #000000;
 }
 .menu-item a {
   color: #ffbb00;
-}
-.menu-item a:hover {
-  background: #ffbb00;
-  color: #000000;
-}
-.menu-item a:active {
-  background: #ffbb00;
-  color: #000000;
+  text-decoration: none;
 }
 @media screen and (min-width: 48em) {
   .menu-item {
     border: 0;
+    line-height: 90px;
   }
   .avatar {
     border-bottom: 1px solid #ffbb00;
