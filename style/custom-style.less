@@ -4,6 +4,7 @@
 @highlightColor: #ffe9dd;
 
 @titleBarHeight: 90px;
+@menuPadding: 3px;
 
 .page-content {
   width: 10px;
@@ -39,7 +40,7 @@
 
   font: 1em;
   line-height: 1em;
-  height: 1em;
+  padding: @menuPadding;
 
 
   &:hover {
@@ -59,8 +60,9 @@
 @media screen and (min-width: 48em) {
 
   .menu-item {
-
+    height: @titleBarHeight;
     line-height: @titleBarHeight;
+    padding: 0;
   }
 
 
