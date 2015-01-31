@@ -19,7 +19,8 @@
   background: #000000;
   text-align: center;
   border-bottom: 1px solid #ffbb00;
-  vertical-align: middle;
+  font: 1em;
+  line-height: 1em;
 }
 .menu-item:hover {
   background: #ffbb00;
