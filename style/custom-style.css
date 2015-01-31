@@ -21,6 +21,7 @@
   border-bottom: 1px solid #ffbb00;
   font: 1em;
   line-height: 1em;
+  height: 1em;
 }
 .menu-item:hover {
   background: #ffbb00;
@@ -34,7 +35,6 @@
 }
 @media screen and (min-width: 48em) {
   .menu-item {
-    border: 0;
     line-height: 90px;
   }
   .avatar {
