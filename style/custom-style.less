@@ -33,6 +33,17 @@
 
 }
 
+a {
+  color: @lightSecondaryColor;
+  text-decoration: none;
+
+  &:hover {
+    color: @backgroundColor;
+
+
+  }
+}
+
 .menu-item {
   background: @backgroundColor;
   text-align: center;
@@ -42,19 +53,12 @@
   line-height: 1em;
   padding: @menuPadding;
 
-
   &:hover {
     background: @lightSecondaryColor;
-
-    a {color: @backgroundColor;
-    }
-
   }
 
-  a {
-    color: @lightSecondaryColor;
-    text-decoration: none;
-  }
+
+
 }
 
 @media screen and (min-width: 48em) {
