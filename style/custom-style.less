@@ -1,20 +1,24 @@
-@backgroundColor: #FF8100;
-@lightSecondaryColor: #FFB300;
-@darkSecondaryColor: #004081;
+@backgroundColor: #000000;
+@lightSecondaryColor: #FFBB00;
+@darkSecondaryColor: #FF7700;
 @highlightColor: #ffe9dd;
 
 .title-bar {
   background-color: @backgroundColor;
   vertical-align: middle;
 
+  color: @lightSecondaryColor;
+
   text-align: center;
 
-  &.avatar {
-    align-content: center;
+  .avatar {
+    height: 180px;
+    background: url("../images/claw.png") no-repeat center;
   }
 
   &.biog {
-    border-bottom: 1px solid @darkSecondaryColor;
+    border-bottom: 1px solid @lightSecondaryColor;
+    display: inline-block;
   }
 
 }
@@ -22,18 +26,19 @@
 .menu-item {
   background: @backgroundColor;
   text-align: center;
-  border-bottom: 1px solid @darkSecondaryColor;
+  border-bottom: 1px solid @lightSecondaryColor;
 
   a {
-    color: @darkSecondaryColor;
+    color: @lightSecondaryColor;
 
 
     &:hover {
-      background: @highlightColor;
+      background: @lightSecondaryColor;
+      color: @backgroundColor;
     }
 
     &:active {
-      background: @highlightColor;
+      background: @lightSecondaryColor;
       color: @backgroundColor;
     }
   }
@@ -48,6 +53,6 @@
 
 
   .avatar {
-    border-bottom: 1px solid @darkSecondaryColor;
+    border-bottom: 1px solid @lightSecondaryColor;
   }
 }

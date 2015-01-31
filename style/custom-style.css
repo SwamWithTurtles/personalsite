@@ -1,34 +1,38 @@
 .title-bar {
-  background-color: #ff8100;
+  background-color: #000000;
   vertical-align: middle;
+  color: #ffbb00;
   text-align: center;
 }
-.title-bar.avatar {
-  align-content: center;
+.title-bar .avatar {
+  height: 180px;
+  background: url("../images/claw.png") no-repeat center;
 }
 .title-bar.biog {
-  border-bottom: 1px solid #004081;
+  border-bottom: 1px solid #ffbb00;
+  display: inline-block;
 }
 .menu-item {
-  background: #ff8100;
+  background: #000000;
   text-align: center;
-  border-bottom: 1px solid #004081;
+  border-bottom: 1px solid #ffbb00;
 }
 .menu-item a {
-  color: #004081;
+  color: #ffbb00;
 }
 .menu-item a:hover {
-  background: #ffe9dd;
+  background: #ffbb00;
+  color: #000000;
 }
 .menu-item a:active {
-  background: #ffe9dd;
-  color: #ff8100;
+  background: #ffbb00;
+  color: #000000;
 }
 @media screen and (min-width: 48em) {
   .menu-item {
     border: 0;
   }
   .avatar {
-    border-bottom: 1px solid #004081;
+    border-bottom: 1px solid #ffbb00;
   }
 }
