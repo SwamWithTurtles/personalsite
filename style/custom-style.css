@@ -23,15 +23,20 @@ a:hover {
   color: #000000;
 }
 .talk-details {
-  margin: 8px;
-  padding: 8px;
   border: 1px solid black;
+  margin: 8px 8px 8px 8px;
 }
 .talk-details img {
-  height: 120px;
-  width: 180px;
-  display: inline-block;
   float: left;
+  display: inline-block;
+  border: 1px solid black;
+  margin: 2px 4px;
+}
+.talk-details h2 {
+  display: inline;
+}
+.talk-details .talk-description {
+  display: inline;
 }
 .menu-item {
   background: #000000;
@@ -60,9 +65,6 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     border: 1px black solid;
-  }
-  .page-details {
-    padding: 8px;
   }
   .avatar {
     border-bottom: 1px solid #ffbb00;
