@@ -68,12 +68,11 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6734375" vertical-offset="289" max-vertical-offset="1170">
-              <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.3671875" vertical-offset="500" max-vertical-offset="1740">
+              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-                <element signature="e#3179#5369#0" expanded="false" />
+                <element signature="e#3514#5704#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -595,12 +594,12 @@
       <workItem from="1422643541466" duration="2016000" />
       <workItem from="1422715663184" duration="3301000" />
       <workItem from="1424284743363" duration="2606000" />
-      <workItem from="1424622586451" duration="8284000" />
+      <workItem from="1424622586451" duration="8891000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18126000" />
+    <option name="totallyTimeSpent" value="18733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="0" />
@@ -664,8 +663,7 @@
           <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#3179#5369#0" expanded="false" />
+            <element signature="e#3514#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -684,8 +682,7 @@
           <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#3179#5369#0" expanded="false" />
+            <element signature="e#3514#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -704,8 +701,7 @@
           <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#3179#5369#0" expanded="false" />
+            <element signature="e#3514#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -740,8 +736,7 @@
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#3179#5369#0" expanded="false" />
+            <element signature="e#3514#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,8 +763,7 @@
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#3179#5369#0" expanded="false" />
+            <element signature="e#3514#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -832,12 +826,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6734375" vertical-offset="289" max-vertical-offset="1170">
-          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.3671875" vertical-offset="500" max-vertical-offset="1740">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#3179#5369#0" expanded="false" />
+            <element signature="e#3514#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
