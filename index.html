@@ -6,6 +6,8 @@
 
 	<link rel="stylesheet" href="style/custom-style.css">
 
+    <script src="bower_components/knockout/dist/knockout.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>David Simons</title>
 </head>
@@ -23,77 +25,46 @@
     <a class="menu-item pure-u-1 pure-u-md-1-6" href="#">Social Media</a>
     <a class="menu-item pure-u-1 pure-u-md-1-6" href="#">Coding</a>
 
-    <div class="page-details pure-g">
+    <div class="page-details pure-g" data-bind="foreach: talks">
 
         <div class="pure-u-1 pure-u-md-1-3">
-            <div class="talk-details">
-                <img src="images/claw.png" class="pure-u-1-2">
-                <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-                <div class="talk-description pure-u-1">
-                    <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
+            <div class="talk-details pure-g">
+                <div class="pure-u-1-2">
+                    <img data-bind="attr: {src: 'images/talks/' + image}" class="talk-cover">
                 </div>
-            </div>
-        </div>
+                <div class="pure-u-1-2 talk-title">
+                    <h2 data-bind="text: title"></h2>
+                </div>
 
-        <div class="pure-u-1 pure-u-md-1-3">
-            <div class="talk-details">
-                <img src="images/claw.png" class="pure-u-1-2">
-                <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-                <div class="talk-description pure-u-1">
-                    <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
+                <div class="talk-description pure-u-1" data-bind="html: description"></div>
+
+                <div class="pure-u-1" data-bind="if: links && links.length > 0">
+                    <h3>Links</h3>
+                    <ul data-bind="foreach: links">
+                        <li><a data-bind="attr: {href: url}, text: description"></a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>        <div class="pure-u-1 pure-u-md-1-3">
-        <div class="talk-details">
-            <img src="images/claw.png" class="pure-u-1-2">
-            <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-            <div class="talk-description pure-u-1">
-                <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
+
             </div>
         </div>
-    </div>        <div class="pure-u-1 pure-u-md-1-3">
-        <div class="talk-details">
-            <img src="images/claw.png" class="pure-u-1-2">
-            <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-            <div class="talk-description pure-u-1">
-                <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
-            </div>
-        </div>
-    </div>        <div class="pure-u-1 pure-u-md-1-3">
-        <div class="talk-details">
-            <img src="images/claw.png" class="pure-u-1-2">
-            <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-            <div class="talk-description pure-u-1">
-                <p>This is a talk about a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
-            </div>
-        </div>
-    </div>        <div class="pure-u-1 pure-u-md-1-3">
-        <div class="talk-details">
-            <img src="images/claw.png" class="pure-u-1-2">
-            <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-            <div class="talk-description pure-u-1">
-                <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
-            </div>
-        </div>
-    </div>        <div class="pure-u-1 pure-u-md-1-3">
-        <div class="talk-details">
-            <img src="images/claw.png" class="pure-u-1-2">
-            <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-            <div class="talk-description pure-u-1">
-                <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
-            </div>
-        </div>
-    </div>        <div class="pure-u-1 pure-u-md-1-3">
-        <div class="talk-details">
-            <img src="images/claw.png" class="pure-u-1-2">
-            <h2 class="pure-u-1-2">Choose your Words Wisely</h2>
-            <div class="talk-description pure-u-1">
-                <p>This is a talk about talking about talks about talking about talks about talking. This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talkingThis is a talk about talking about talks about talking about talks about talking This is a talk about talking about talks about talking about talks about talking</p>
-            </div>
-        </div>
-    </div>
     </div>
 
 </div>
+
+<script>
+    var viewModel = {
+        talks: ko.observableArray([{
+            title: "Choose Your Words Wisely",
+            image: "choose-your-words.png",
+            description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
+            links: [{
+                url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
+                description: "BrisTech, Feb 2015"
+            }]
+        }])
+    };
+
+    ko.applyBindings(viewModel);
+</script>
 </body>
 </html>
