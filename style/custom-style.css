@@ -83,6 +83,9 @@ a:hover {
     margin-right: auto;
     border: 1px black solid;
   }
+  .page-details {
+    padding-bottom: 8px;
+  }
   .avatar {
     border-bottom: 1px solid #ffbb00;
   }
