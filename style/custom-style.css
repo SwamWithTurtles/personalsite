@@ -63,6 +63,9 @@ a:hover {
 .menu-item:hover {
   background: #ffbb00;
 }
+.page-container {
+  padding: 0 8px;
+}
 @media screen and (min-width: 48em) {
   .menu-item {
     height: 90px;
