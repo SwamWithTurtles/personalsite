@@ -114,6 +114,27 @@ a {
 
 }
 
+.biog-image {
+  display: none;
+}
+
+.biog-pic-banner {
+  display: flex;
+  
+  .biog-pic-2 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+}
 
 
 @media screen and (min-width: 48em) {
@@ -124,7 +145,7 @@ a {
     padding: 0;
   }
 
-  body{
+  body {
     background-color: #333333;
     align: center;
   }
@@ -141,8 +162,21 @@ a {
     padding-bottom: 8px;
   }
 
+  .biog-image {
+    display: inline-block;
+  }
 
   .avatar {
     border-bottom: 1px solid @lightSecondaryColor;
+  }
+
+  .biog-pic-banner {
+    display: none;
+
+    img {
+      height: 100% !important;
+      display: inline-block;
+      width: 100%;
+    }
   }
 }

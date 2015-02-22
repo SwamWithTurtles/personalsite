@@ -75,6 +75,23 @@ a:hover {
 .biog-image .biog-pic {
   width: 95%;
 }
+.biog-image {
+  display: none;
+}
+.biog-pic-banner {
+  display: flex;
+}
+.biog-pic-banner .biog-pic-2 {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.biog-pic-banner div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 @media screen and (min-width: 48em) {
   .menu-item {
     height: 90px;
@@ -95,7 +112,18 @@ a:hover {
   .page-details {
     padding-bottom: 8px;
   }
+  .biog-image {
+    display: inline-block;
+  }
   .avatar {
     border-bottom: 1px solid #ffbb00;
+  }
+  .biog-pic-banner {
+    display: none;
+  }
+  .biog-pic-banner img {
+    height: 100% !important;
+    display: inline-block;
+    width: 100%;
   }
 }
