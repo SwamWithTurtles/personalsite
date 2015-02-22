@@ -49,19 +49,54 @@
         </div>
     </div>
 
+    <div class="pure-u-1" data-bind="if: lightningTalks && lightningTalks.length > 0">
+        <h2>Lightning Talks</h2>
+        <ul data-bind="foreach: lightningTalks">
+            <li><a data-bind="{text: title, attr: {href: url}}"></a></li>
+        </ul>
+    </div>
+
 </div>
 
 <script>
     var viewModel = {
-        talks: ko.observableArray([{
-            title: "Choose Your Words Wisely",
-            image: "choose-your-words.png",
-            description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
-            links: [{
-                url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
-                description: "BrisTech, Feb 2015"
-            }]
-        }])
+        talks: ko.observableArray([
+            {
+                title: "Choose Your Words Wisely",
+                image: "choose-your-words.png",
+                description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
+                links: [{
+                    url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
+                    description: "BrisTech, Feb 2015"
+                }]
+            },
+            {
+                title: "Ten Databases in an Hour",
+                image: "ten-dbs.png",
+                description: "<p>SQL has dominated the database world for a long time because of its robustness and general usability.  This talk aims to give a tour of many different kinds of databases - some of which you will have heard of, and some you will probably not have! - and look at what they can provide.</p>",
+                links: [{
+                    url: "http://www.ndcvideos.com/#/app/video/2751",
+                    description: "New Developer Conference, Nov 2014"
+                },
+                {
+                    url: "http://www.dotnetrocks.com/default.aspx/slices/dnr_photos/aka.ms/images/default.aspx?showNum=1085",
+                    description: ".NET Rocks Recoding, Jan 2015"
+                }]
+            },
+            {
+                title: "When It's Wrong to be Right",
+                image: "nondeterminism.png",
+                description: "<p>As we work with bigger data and want faster results, the software world has to turn to new flavours of algorithms. This talk works as an introduction to non-deterministic algorithms with examples from real-time analytics, NoSQL and academia to examine why and how unpredictability has been used on modern systems.</p>",
+                links: [{
+                    url: "https://www.youtube.com/watch?v=rV9dqR0P0lQ",
+                    description: "SoftCon, Apr 2014"
+                }]
+            }]),
+        lightningTalks: [
+            {title: "The UX Factor", url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/"},
+            {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j"},
+            {title: "Rapid App Development with MeteorJS", url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/"}
+        ]
     };
 
     ko.applyBindings(viewModel);
