@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "pure": "~0.5.0",
-    "knockout": "~3.3.0"
+    "knockout": "~3.3.0",
+    "pagerjs": "finnsson/pagerjs#~1.0.1"
   }
 }
