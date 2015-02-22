@@ -78,6 +78,10 @@ a:hover {
 .biog-image {
   display: none;
 }
+.twitter-timeline {
+  padding: 0;
+  margin: auto;
+}
 .biog-pic-banner {
   width: 95%;
   text-align: center;
