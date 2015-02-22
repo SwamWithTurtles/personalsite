@@ -78,6 +78,11 @@ a:hover {
 .biog-image {
   display: none;
 }
+.biog-pic-banner {
+  width: 95%;
+  text-align: center;
+  margin: auto;
+}
 .biog-pic-banner .biog-pic-2 {
   width: 100%;
   height: 100%;
