@@ -26,7 +26,7 @@
     <a class="menu-item pure-u-1 pure-u-md-1-6" href="#bio">About Me</a>
     <a class="menu-item pure-u-1 pure-u-md-1-6" href="#talks">Talking</a>
     <a class="menu-item pure-u-1 pure-u-md-1-6" href="#social">Social Media</a>
-    <a class="menu-item pure-u-1 pure-u-md-1-6" href="#coding">Coding Blog</a>
+    <a class="menu-item pure-u-1 pure-u-md-1-6" href="http://swamwithturtles.tumblr.com/">Coding Blog</a>
 
     <div class="page-container">
         <div class="page-details pure-g" data-bind="page: {id: 'start', title: 'David Simons'}">
@@ -219,19 +219,32 @@
 						{
 								title: "Decoupled APIs through Microservices",
 								image: "microservices.png",
-								description: "<p>This talk introduces microservices as a tool in an API developer's arsenal. We’ll introduce what they are, see how and why they could fit into a modern application (and when they may not), and tools that will make dealing with a microservices architecture easier than ever before.</p>",
+								description: "<p>This talk introduces microservices as a tool in an API developer's arsenal. We'll introduce what they are, see how and why they could fit into a modern application (and when they may not), and tools that will make dealing with a microservices architecture easier than ever before.</p>",
 								links: [{
 										url: "https://www.youtube.com/watch?v=4Hjw0-WZG24",
 										description: "APIStrat Berlin, Apr 2015"
 								}]
-						}]),
+						}, {
+                title: "Choosing the Right Database",
+                image: "choose-db.png",
+                description: "<p>It is no longer taken as a given that a traditional RDBMS will back your software. This talk hopes to examine the thought-provoking questions you should ask about your database (e.g. around scalability, data models and consistency).</p>",
+                links: [{
+                    url: "https://www.youtube.com/watch?v=WR6TQfuxwDk",
+                    description: "BrisTech, Oct 2015"
+                }]
+            }]),
         lightningTalks: [
 					  {title: "The A-Z of the Java Ecosystem", url: "https://www.youtube.com/watch?v=A6T968mcYAw"},
             {title: "The UX Factor", url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/"},
             {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j"},
             {title: "Rapid App Development with MeteorJS", url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/"}
         ],
-        upcomingTalks: []
+        upcomingTalks: [
+            { title: "High-Quality Front End @ NDC London 2016 (13/01/16)", url: "http://ndc-london.com/"},
+            { title: "What Can Software Learn from Reality TV? @ NDC London 2016 (15/01/16)", url: "http://ndc-london.com/"},
+            { title: "Choosing the Right Database @ /dev/winter (23/01/16)", url: "http://devcycles.net/2016/winter/"}
+
+        ]
     };
 
     pager.extendWithPage(viewModel);
