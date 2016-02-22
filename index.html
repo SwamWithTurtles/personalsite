@@ -26,6 +26,7 @@
 
     <script src="bower_components/knockoutjs/dist/knockout.js"></script>
     <script src="bower_components/pagerjs/dist/pager.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.0/lodash.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -144,9 +145,17 @@
 
         <div class="'page-details pure-g" data-bind=" page: {id: 'talks', title: 'David Simons - Talks'}">
 
+            <br/>
             <div class="pure-u-1">
+                <b>Filter by Tag:</b>
+                <div class="btn-group" role="group" data-bind="foreach: tags">
+                <button class="btn btn-sm btn-default" data-bind="text: $data, click: function() {$root.addTag($data)}, css: { 'btn-success': $root.filter()===$data }"></button>
+                </div>
+            </div>
+
+            <div class="pure-u-1" data-bind="if: filteredUpcomingTalks() && filteredUpcomingTalks().length > 0">
                 <h2>Upcoming Talks</h2>
-                <ul data-bind="foreach: upcomingTalks">
+                <ul data-bind="foreach: filteredUpcomingTalks">
                     <li><a data-bind="{text: title, attr: {href: url}}"></a>
                         <!-- ko foreach: tags -->
                         <span class="badge" data-bind="text: $data"></span>
@@ -155,11 +164,11 @@
                 </ul>
             </div>
 
-            <div class="pure-u-1">
+            <div class="pure-u-1" data-bind="if: filteredTalks() && filteredTalks().length > 0">
 
                 <h2>Previous Talks</h2>
 
-                <div class="pure-g" data-bind="foreach: talks">
+                <div class="pure-g" data-bind="foreach: filteredTalks">
                     <div class="pure-u-1 pure-u-md-1-2">
                         <div class="talk-details pure-g">
                             <div class="pure-u-1">
@@ -191,9 +200,9 @@
                 </div>
             </div>
 
-            <div class="pure-u-1" data-bind="if: lightningTalks && lightningTalks.length > 0">
+            <div class="pure-u-1" data-bind="if: filteredLightningTalks() && filteredLightningTalks().length > 0">
                 <h2>Lightning Talks</h2>
-                <ul data-bind="foreach: lightningTalks">
+                <ul data-bind="foreach: filteredLightningTalks">
                     <li><a data-bind="{text: title, attr: {href: url}}"></a>
                     <!-- ko foreach: tags -->
                         <span class="badge" data-bind="text: $data"></span>
@@ -221,12 +230,29 @@
 </div>
 
 <script>
+    Array.prototype.contains = function(obj) {
+        var i = this.length;
+        while (i--) {
+            if (this[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    var filterTalksList = function(talk) {
+                if(viewModel.filter() == "") { return true;}
+
+                return talk.tags.contains(viewModel.filter());
+            };
+
     var viewModel = {
         talks: ko.observableArray([
             {
                 title: "Choose Your Words Wisely",
                 image: "choose-your-words.png",
-                tags: ["UX", "Front-end"],
+                tags: ["UX", "Front-End"],
                 description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
                 links: [{
                     url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
@@ -283,7 +309,7 @@
 					{
 						title: "High-Quality Front End",
 						image: "front-end.png",
-						tags: ["Architecture", "Front-end"],
+						tags: ["Architecture", "Front-End"],
 						description: "<p>This talk aims to introduce and discuss how to implement modularisation, functional idioms and testing in JavaScript in an idiomatic way, to allow you to code JavaScript to a higher quality and, ultimately, more sustainably.</p>",
 						links: [ {
 						    url: "https://vimeo.com/155377220",
@@ -291,16 +317,60 @@
 						}]
 					}]),
         lightningTalks: [
-            {title: "The A-Z of the Java Ecosystem", url: "https://www.youtube.com/watch?v=A6T968mcYAw", tags: ["Java"]},
-            {title: "The UX Factor", url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/", tags: ["UX"]},
-            {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j", tags: ["Databases", "Case Studies"]},
-            {title: "Rapid App Development with MeteorJS", url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/", tags: ["Front-End"]}
+            {title: "The A-Z of the Java Ecosystem", url: "https://www.youtube.com/watch?v=A6T968mcYAw", tags: ["Java", "Lightning Talk"]},
+            {title: "The UX Factor", url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/", tags: ["UX", "Lightning Talk"]},
+            {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j", tags: ["Databases", "Case Studies", "Lightning Talk"]},
+            {title: "Rapid App Development with MeteorJS", url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/", tags: ["Front-End", "Lightning Talk"]}
         ],
         upcomingTalks: [
             { title: "Statistical Programming in JavaScript @ JSConfUY (15/04/16 - 16/04/16)", url: "http://jsconf.uy", tags: ["Statistics", "Front-End"]},
 			{ title: "Decoupling through Microservices @ ProgSCon London (22/04/16)", url: "http://progscon.co.uk", tags: ["Architecture"]},
 			{ title: "Recommendation Engines @ BrisTech (05/05/16)", url: "http://www.meetup.com/bristech/events/228970926/", tags: ["Statistics", "Architecture"] }
-        ]
+        ],
+        filter: ko.observable(""),
+        tags: ko.computed({
+            read: function() {
+                var upcomingTalks = viewModel.upcomingTalks;
+                var lightningTalks = viewModel.lightningTalks;
+                var talks = viewModel.talks();
+
+                return _.union(
+                    _.flatten(_.map(upcomingTalks, function(t) {return t.tags})),
+                    _.flatten(_.map(lightningTalks, function(t) {return t.tags})),
+                    _.flatten(_.map(talks, function(t) {return t.tags}))
+                );
+            },
+            deferEvaluation: true
+        }),
+
+        filteredTalks: ko.computed({
+            read: function() {
+                return _.filter(viewModel.talks(), filterTalksList);
+            },
+            deferEvaluation: true
+        }),
+
+        filteredLightningTalks: ko.computed({
+            read: function() {
+                return _.filter(viewModel.lightningTalks, filterTalksList);
+            },
+            deferEvaluation: true
+        }),
+
+        filteredUpcomingTalks: ko.computed({
+            read: function() {
+                return _.filter(viewModel.upcomingTalks, filterTalksList);
+            },
+            deferEvaluation: true
+        }),
+
+        addTag: function(tag) {
+            if(viewModel.filter() === tag) {
+                viewModel.filter("")
+            } else {
+                viewModel.filter(tag)
+            }
+        }
     };
 
     pager.extendWithPage(viewModel);
