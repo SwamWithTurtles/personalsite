@@ -11,6 +11,9 @@
   ga('send', 'pageview');
 
 
+
+
+
 </script>
 
 <head>
@@ -18,7 +21,8 @@
     <link rel="stylesheet" href="bower_components/pure/pure-min.css">
     <link rel="stylesheet" href="bower_components/pure/grids-responsive-min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style/custom-style.css">
 
@@ -57,6 +61,9 @@
                        data-widget-id="569575925877317632">Tweets by @SwamWithTurtles</a>
                     <script>
                         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+
+
                     </script>
                 </div>
             </div>
@@ -149,7 +156,8 @@
             <div class="pure-u-1">
                 <b>Filter by Tag:</b>
                 <div class="btn-group" role="group" data-bind="foreach: tags">
-                <button class="btn btn-sm btn-default" data-bind="text: $data, click: function() {$root.addTag($data)}, css: { 'btn-success': $root.filter()===$data }"></button>
+                    <button class="btn btn-sm btn-default"
+                            data-bind="text: $data, click: function() {$root.addTag($data)}, css: { 'btn-success': $root.filter()===$data }"></button>
                 </div>
             </div>
 
@@ -175,7 +183,7 @@
                                 <h3>
                                     <span data-bind="text: title"></span>
                                     <!-- ko foreach: tags -->
-                                <span class="badge" data-bind="text: $data"></span>
+                                    <span class="badge" data-bind="text: $data"></span>
                                     <!-- /ko -->
                                 </h3>
 
@@ -204,9 +212,9 @@
                 <h2>Lightning Talks</h2>
                 <ul data-bind="foreach: filteredLightningTalks">
                     <li><a data-bind="{text: title, attr: {href: url}}"></a>
-                    <!-- ko foreach: tags -->
+                        <!-- ko foreach: tags -->
                         <span class="badge" data-bind="text: $data"></span>
-                    <!-- /ko -->
+                        <!-- /ko -->
                     </li>
                 </ul>
             </div>
@@ -249,30 +257,45 @@
 
     var viewModel = {
         talks: ko.observableArray([
-            {
-                title: "Choose Your Words Wisely",
-                image: "choose-your-words.png",
-                tags: ["UX", "Front-End"],
-                description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
+        {
+                title: "Choosing the Right Database",
+                image: "choose-db.png",
+                tags: ["Architecture", "Neo4j"],
+                description: "<p>It is no longer taken as a given that a traditional RDBMS will back your software. This talk hopes to examine the thought-provoking questions you should ask about your database (e.g. around scalability, data models and consistency).</p>",
                 links: [{
-                    url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
-                    description: "BrisTech, Feb 2015"
-                }]
+                    url: "https://www.youtube.com/watch?v=WR6TQfuxwDk",
+                    description: "BrisTech, Oct 2015"
+                },
+								{
+										url: "https://vimeo.com/113621016",
+										description: "New Developer Conference, Nov 2014"
+								},
+								{
+										url: "https://www.dotnetrocks.com/default.aspx?showNum=1085",
+										description: ".NET Rocks Recoding, Jan 2015"
+								}]
             },
             {
                 title: "When It's Wrong to be Right",
                 image: "nondeterminism.png",
-                tags: ["Statistics", "Databases"],
+                tags: ["Statistics"],
                 description: "<p>As we work with bigger data and want faster results, the software world has to turn to new flavours of algorithms. This talk works as an introduction to non-deterministic algorithms with examples from real-time analytics, NoSQL and academia to examine why and how unpredictability has been used on modern systems.</p>",
                 links: [{
                     url: "https://www.youtube.com/watch?v=rV9dqR0P0lQ",
                     description: "SoftCon, Apr 2014"
                 }]
             },
+                        {
+                title: "Statistical Programming in JavaScript",
+                image: "statistical-programming.png",
+                tags: ["Statistics", "Front-End"],
+                description: "<p>Almost every application needs data to function - and if you don't know how to be nice to your data, then things will start to go wrong.</p><p>The talk discusses some statistical theory, and the wide range of libraries that allow you to implement that in the front-end of your system.</p>",
+                links: []
+            },
 						{
 								title: "Graph Theory in Practise",
 								image: "graph-theory.png",
-								tags: ["Statistics", "Databases"],
+								tags: ["Statistics", "Neo4j"],
 								description: "<p>The power of graphs (that is, networks of nodes and edges) is starting to be realised in databases such as neo4j. This talk looks at solving software problems with graphs by utilising theories from the academic world, looking at case studies of domains and problems that can be solved using these approaches, and how we can implement them.</p>",
 								links: [{
 									url: "https://www.youtube.com/watch?v=-dV-ToosfRY",
@@ -288,24 +311,7 @@
 										url: "https://www.youtube.com/watch?v=4Hjw0-WZG24",
 										description: "APIStrat Berlin, Apr 2015"
 								}]
-						}, {
-                title: "Choosing the Right Database",
-                image: "choose-db.png",
-                tags: ["Architecture", "Databases"],
-                description: "<p>It is no longer taken as a given that a traditional RDBMS will back your software. This talk hopes to examine the thought-provoking questions you should ask about your database (e.g. around scalability, data models and consistency).</p>",
-                links: [{
-                    url: "https://www.youtube.com/watch?v=WR6TQfuxwDk",
-                    description: "BrisTech, Oct 2015"
-                },
-								{
-										url: "https://vimeo.com/113621016",
-										description: "New Developer Conference, Nov 2014"
-								},
-								{
-										url: "https://www.dotnetrocks.com/default.aspx?showNum=1085",
-										description: ".NET Rocks Recoding, Jan 2015"
-								}]
-            },
+						},
 					{
 						title: "High-Quality Front End",
 						image: "front-end.png",
@@ -315,17 +321,26 @@
 						    url: "https://vimeo.com/155377220",
 						    description: "New Developer Conference, Jan 2016"
 						}]
-					}]),
+					},
+					{
+                title: "Choose Your Words Wisely",
+                image: "choose-your-words.png",
+                tags: ["UX", "Front-End"],
+                description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
+                links: [{
+                    url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
+                    description: "BrisTech, Feb 2015"
+                }]
+            }]),
         lightningTalks: [
             {title: "The A-Z of the Java Ecosystem", url: "https://www.youtube.com/watch?v=A6T968mcYAw", tags: ["Java", "Lightning Talk"]},
             {title: "The UX Factor", url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/", tags: ["UX", "Lightning Talk"]},
-            {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j", tags: ["Databases", "Case Studies", "Lightning Talk"]},
+            {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j", tags: ["Neo4j", "Case Studies", "Lightning Talk"]},
             {title: "Rapid App Development with MeteorJS", url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/", tags: ["Front-End", "Lightning Talk"]}
         ],
         upcomingTalks: [
-            { title: "Statistical Programming in JavaScript @ JSConfUY (15/04/16 - 16/04/16)", url: "http://jsconf.uy", tags: ["Statistics", "Front-End"]},
 			{ title: "Decoupling through Microservices @ ProgSCon London (22/04/16)", url: "http://progscon.co.uk", tags: ["Architecture"]},
-			{ title: "Recommendation Engines @ BrisTech (05/05/16)", url: "http://www.meetup.com/bristech/events/228970926/", tags: ["Statistics", "Architecture"] }
+			{ title: "Recommendation Engines @ BrisTech (05/05/16)", url: "http://www.meetup.com/bristech/events/228970926/", tags: ["Statistics", "Neo4j", "Architecture"] }
         ],
         filter: ko.observable(""),
         tags: ko.computed({
@@ -376,6 +391,9 @@
     pager.extendWithPage(viewModel);
     ko.applyBindings(viewModel);
     pager.start();
+
+
+
 
 </script>
 </body>
