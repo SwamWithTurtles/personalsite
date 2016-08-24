@@ -1,0 +1,422 @@
+mmcore.SetCookie('mmid','640596441|AwAAAArcEKjqww0AAA==',365,1);mmcore.SetCookie('pd','640596441|AwAAAArcEKjqww0AAA==',365);mmcore.SetCookie('srv','ldnvwcgeu13',365);(function(){mmcore.custAttrs = {};if(typeof(mmcore.GenInfo)!='object')mmcore.GenInfo={};mmcore.EH=function(e){var s=e.message+'\r\n';if(!window.mm_error)window.mm_error=s;else window.mm_error+=s;};
+mmcore.GenInfo['T27_VidInArticlev2']={'a_videost27':'a3_targeted'};
+var tc={'A_VideosT27':{'h':[],'c':[],'l':[]}}
+mmcore.AttachStyle=function(t){if(document.body){var s=document.createElement('style');s.type='text/css';if(/WebKit|MSIE/i.test(navigator.userAgent)){if(s.styleSheet){s.styleSheet.cssText=t;}else{s.innerText=t;}}else{s.innerHTML=t;}document.getElementsByTagName('head')[0].appendChild(s);}else{document.write('<style type="text/css">'+t+'</style>');}}
+tc['A_VideosT27'].c.push(unescape('    .mm-t27-video-template {        margin-top: 30px;        margin-bottom: 15px' + 
+ ';    }    .mm-t27-recommends-cnt-exist .mm-t27-video-template {        m' + 
+ 'argin-top: 5px;    }    .mm-t27-half-width {        display: block;     ' + 
+ '   width: 33.33333%25;        box-sizing: border-box;        float: left' + 
+ ';    }    .mm-t27-clearfix {        clear: both;    }    .mm-t27-play-vi' + 
+ 'deo {        display: block;		height: 107px;		max-width: 186px;		width: ' + 
+ '100%25;    }    .mm-t27-video-name {		color: #000000;		font-family: Aria' + 
+ 'l,sans-serif;		font-size: 13.4px;		line-height: 15px;		max-width: 186px;' + 
+ '		padding-top: 20px;    }    .mm-t27-image-block {		height: 107px;		posi' + 
+ 'tion: relative;		width: 187px;    }    .mm-t27-play {        position: a' + 
+ 'bsolute;        bottom: 6px;        right: 10px;    }    .mm-t27-order-0' + 
+ ' .mm-image-block,    .mm-t27-order-0 .mm-video-name {        margin-righ' + 
+ 't: 13px;    }    .mm-t27-order-1 .mm-t27-image-block,    .mm-t27-order-1' + 
+ ' .mm-t27-video-name {        margin-left: 7px;        margin-right: 7px;' + 
+ '    }    .mm-t27-order-2 .mm-t27-image-block,    .mm-t27-order-2 .mm-t27' + 
+ '-video-name {        margin-left: 13px;    }'));tc['A_VideosT27'].h.push(unescape('<div class=%22mm-t27-video-template%22>    <div class=%22mm-t27-clearfix%22><%2F' + 
+ 'div><%2Fdiv>'));
+try{
+// Maxymiser Core - Attach Style v0.0.0 http://gitlab.maxymiser.net/gts/mmcore-attach-style/tree/master
+(function(){'use strict';mmcore.AttachStyle=function(){var c={STYLE_ID:"mm-style",createStyle:function(){var b=document.createElement("style");b.type="text/css";return b},appendCssToStyle:function(){var b,a;"styleSheet"in c.createStyle()?(b=function(a){return a.styleSheet.cssText},a=function(a,b){a.styleSheet.cssText=b}):(b=function(a){return a.innerHTML},a=function(a,b){a.innerHTML=b});return(c.appendCssToStyle=function(c,d){a(d,b(d)+c)}).apply(this,arguments)}};return function(b){var a=document.getElementById(c.STYLE_ID);a||(a=c.createStyle(),a.id=c.STYLE_ID,function(){this.parentNode.insertBefore(a,this)}.call(document.getElementsByTagName("head")[0].lastChild));c.appendCssToStyle(b,a)}}()})();
+}catch(err){mmcore.EH(err);}
+try{
+/**
+ * 11.09.2014
+ * Track all campaigns automatically
+ * A. Tytskiy
+ *
+ * Dependencies: [Plugin_Essentials.js:mmcore.waitFor,
+ * 				  Plugin_Helpers.js:mmcore.helpers]
+ */
+(function (mmcore) {
+	'use strict';
+
+	var TIMEOUT = 8000;
+	var track = function () {
+
+		mmcore.ijento = mmcore.ijento || {};
+
+		mmcore.AddDocLoadHandler(function () {
+			if (!mmcore.GenInfo || !mmcore.waitFor) {
+				return;
+			}
+
+			if (mmcore.helpers && window.si && window.si.sendAdditionalTracer) {
+				mmcore.helpers.iJentoTag();
+			} else {
+				mmcore
+					.waitFor(function () {
+						return mmcore.helpers && window.si && window.si.sendAdditionalTracer;
+					}, { isNotStoppedOnDocumentReadiness: true, timeout: TIMEOUT })
+					.done(function () {
+						mmcore.helpers.iJentoTag();
+					});
+			}
+		});
+	};
+
+	track();
+	track = null;
+}(window.mmcore));
+
+}catch(err){mmcore.EH(err);}
+try{
+(function T27_DataPlaylist() {
+	var obj_with_category = {
+		'World' : {
+			'playlist_id' : 69917356001,
+			'MapTerms' : ['World',
+				'Africa',
+				'Asia-Pacific',
+				'Afghanistan',
+				'China',
+				'India',
+				'Japan',
+				'North Korea',
+				'Pakistan',
+				'Europe',
+				'Brussels',
+				'Latin America & Caribbean',
+				'Americas Business',
+				'Americas Finance',
+				'Americas Politics & Policy',
+				'Americas Regulation',
+				'Americas Society',
+				'Middle East & North Africa',
+				'Arab-Israel conflict',
+				'Gulf',
+				'Iran',
+				'Iraq',
+				'Middle Eastern Finance',
+				'Middle Eastern Politics & Society',
+				'Science & Environment',
+				'UK',
+				'UK Business & Economy',
+				'UK Politics & Policy',
+				'US & Canada',
+				'Canada',
+				'US Politics & Policy',
+				'US Society']
+		},
+		'GlobalEconomy' : {
+			'playlist_id' : 69917356001,
+			'MapTerms' : ['Global Economy',
+				'Africa Economy',
+				'Americas Economy',
+				'Asia-Pacific Economy',
+				'Chinese Economy',
+				'EU Economy',
+				'Indian Economy',
+				'Middle Eastern Economy']
+		},
+		'Markets' : {
+			'playlist_id' : 69928162001,
+			'MapTerms' : ['Markets',
+				'Capital Markets',
+				'Commodities',
+				'Commodities explained',
+				'The Commodities note',
+				'Currencies',
+				'Emerging Markets',
+				'Equities',
+				'Asia-Pacific Equities',
+				'European Equities',
+				'UK Equities',
+				'US Equities']
+		},
+		'Companies' : {
+			'playlist_id' : 69928161001,
+			'MapTerms' : ['Companies',
+				'African Companies',
+				'Americas Companies',
+				'Asia-Pacific Companies',
+				'European Companies',
+				'Middle Eastern Companies',
+				'UK Companies',
+				'UK Small Companies',
+				'US & Canadian Companies',
+				'Energy',
+				'Mining',
+				'Oil & Gas',
+				'Utilities',
+				'Financials',
+				'Banks',
+				'Financial Services',
+				'Insurance',
+				'Property',
+				'Health',
+				'Health Care',
+				'Pharmaceuticals',
+				'Industrials',
+				'Aerospace & Defence',
+				'Automobiles',
+				'Basic Resources',
+				'Chemicals',
+				'Construction',
+				'Industrial Goods',
+				'Support Services',
+				'Luxury 360',
+				'Media',
+				'Retail & Consumer',
+				'Food & Beverage',
+				'Personal & Household Goods',
+				'Retail',
+				'Tobacco',
+				'Travel & Leisure',
+				'Technology',
+				'Telecoms',
+				'Transport',
+				'Airlines',
+				'Rail',
+				'Shipping']
+		},
+		'Lex' : {
+			'playlist_id' : 75983902001,
+			'MapTerms' : ['Lex']
+		},
+		'Comment' : {
+			'playlist_id' : 69917354001,
+			'MapTerms' : ['Comment',
+				'Columnists',
+				'FT View',
+				'Financial Commentary',
+				'Letters',
+				'Obituaries',
+				'Opinion',
+				'The Big Read']
+		},
+		'PersFinance' : {
+			'playlist_id' : 69917354001,
+			'MapTerms' : ['Personal Finance',
+				'Advice & Comment',
+				'Investments',
+				'Isas',
+				'Money Matters',
+				'Pensions',
+				'Property & Mortgages',
+				'Property Guides & Tips',
+				'Savings',
+				'Tax',
+				'Trading Hub']
+		},
+		'Management' : {
+			'playlist_id' : 69928161001,
+			'MapTerms' : ['Management',
+				'Business Books']
+		},
+		'FTfm' : {
+			'playlist_id' : 69928231001,
+			'MapTerms' : ['FTfm Fund Management',
+				'Exchange Traded Funds',
+				'FTfm Opinion',
+				'FTfm Reports',
+				'Investment Strategy',
+				'Pensions Industry',
+				'People in Fund Management',
+				'Regulation & Governance']
+		},
+		'LifeArts' : {
+			'playlist_id' : 648729276001,
+			'MapTerms' : ['Life & Arts',
+				'CD & DVD Reviews',
+				'Collecting',
+				'Design & Architecture',
+				'Film & Television',
+				'Pick of the Weekend',
+				'Music',
+				'Brand.Life of a Song',
+				'Albums',
+				'Live Music',
+				'Theatre & Dance',
+				'Dance',
+				'Theatre',
+				'Theatre Previews',
+				'Visual Arts',
+				'Exhibitions',
+				'Books',
+				'Essay',
+				'Fiction',
+				'Non-Fiction',
+				'Short Reviews',
+				'Small Talk',
+				'The Poem',
+				'FT Magazine',
+				'Food & Drink',
+				'Five of the Best',
+				'Recipes',
+				'Restaurants',
+				'The History Cook',
+				'Wine',
+				'House & Home',
+				'At Home',
+				'Expat Lives',
+				'Gardens',
+				'Hot Property',
+				'Interiors',
+				'Interiors Special',
+				'International Property',
+				'Mountain Living Special',
+				'UK Property',
+				'Pursuits',
+				'Sport',
+				'Style',
+				'Beauty',
+				'Power Dressing',
+				'Travel',
+				'Adventures',
+				'African destinations',
+				'Americas destinations',
+				'Asian and Australian destinations',
+				'City Breaks',
+				'Cycling Adventures',
+				'European destinations',
+				'Family',
+				'Great Journeys',
+				'Luxury Travel',
+				'Neighbourhood Watch',
+				'North American destinations',
+				'Shortcuts',
+				'UK destinations',
+				'Winter Sports']
+		},
+		'TradingRoom' : {
+			'playlist_id' : 69934790001,
+			'MapTerms' : ['FT Trading Room',
+				'Carbon Markets',
+				'Clearing & Settlement',
+				'Developing Markets & Asia',
+				'Exchanges Consolidation',
+				'High Frequency Trading',
+				'Markets Regulation',
+				'Trading Technology']
+		},
+		'BusinessEducation' : {
+			'playlist_id' : 69928232001,
+			'MapTerms' : ['Business Education',
+				'Applying for a Masters Degree',
+				'Applying for an MBA',
+				'Applying to Business School',
+				'Ask the Expert',
+				'Business Education Community',
+				'Business School News',
+				'Business School Profiles',
+				'Business School Rankings',
+				'European Business Schools',
+				'Executive Education',
+				'Executive MBA',
+				'Financial Training',
+				'Finding a Job',
+				'Innovative Law Schools',
+				'MBA',
+				'MBA Careers',
+				'MBA Jobs',
+				'Online Learning',
+				'Starting a Business']
+		},
+		'ConnectedBusiness' : {
+			'playlist_id' : 637774695001,
+			'MapTerms' : ['The Connected Business']
+		}
+
+	}
+	mmcore.T27_with_category = obj_with_category;
+
+	var playlist_id = 69917354001;
+	var attr = 'Other';
+	// get data for current article
+	jQuery.each(obj_with_category, function (t) {
+		var category_mas = this.MapTerms;
+		var l_category = category_mas.length;
+		for (var i = 0; i < l_category; i++) {
+			if (window.siteMapTerm == 'Sections.' + category_mas[i] || window.siteMapTerm == 'SpecialReports.' + category_mas[i]) {
+				playlist_id = this.playlist_id;
+				attr = t;
+				break;
+			}
+
+		}
+	});
+	mmcore.T27_data_article = {
+		playlist_id : playlist_id,
+		attr : attr
+	}
+
+}());
+
+}catch(err){mmcore.EH(err);}
+try{
+/**/
+}catch(err){mmcore.EH(err);}
+try{
+;(function T27_PluginiJento(){
+	if( typeof mmcore.trackiJentoCustom === 'function' ){
+		mmcore.trackiJentoCustom('T27_VidInArticlev2');
+	}
+})();
+}catch(err){mmcore.EH(err);}
+var gs='';for(var i in tc)gs+=tc[i].c.join('');mmcore.AttachStyle(gs);mmcore._AddRenderer('A_VideosT27',function(){var el=mmcore.GetMaxyboxNode('A_VideosT27');var mm_inner_HTML='';mm_inner_HTML+=tc['A_VideosT27'].h[0];try{
+
+    (function A3_Targeted() {
+
+        function parseTemplate(str, data) {
+        	if (!data || !str)
+        		return '';
+        	var fn = new Function("obj", "var p=[]; with(obj){p.push('" + unescape(str).replace(/[\r\t\n]/g, " ").replace(/'(?=[^%]*%})/g, "\t").split("'").join("\\'").split("\t").join("'").replace(/{%=(.+?)%}/g, "',$1,'").split("{%").join("');").split("%}").join("p.push('") + "');}return p.join('');");
+        	return fn(data);
+        }
+        mmcore.waitFor(function () {
+        	return (typeof(mmcore.T27_data_article) == 'object');
+        }).done(function () {
+        	var tmpl = '<a class="mm-t27-half-width mm-t27-order-{%=order%}" href="{%=href%}">' +
+        		'<div class="mm-t27-image-block">' +
+        		'<img class="mm-t27-play-video" src="{%=src%}"/>' +
+        		'<img class="mm-t27-play" src="//service.maxymiser.net/cm/images-eu/1/1/1/3DD190ACC7DAC91D9514C20390429DCB71CA3FD925F170DD0547E0684FEB3A43/ft-com/T27-VidInArticlev2/blackWhiteArrowIcon.png" />' +
+        		'</div>' +
+        		'<div class="mm-t27-video-name">{%=name%}</div>' +
+        		'</a>';
+
+        	mmcore.T27 = {};
+        	mmcore.T27.renderVideo = function (response) {
+				$(mm_inner_HTML).insertAfter('.fullstoryBody .newStoryToolsContainer');
+
+        		var html = '';
+
+        		for (var i = 0; i < 3; i++) {
+        			html += parseTemplate(tmpl, {
+        				order : i,
+        				href : '//video.ft.com/' + response.videos[i].id,
+        				src : response.videos[i].thumbnailURL,
+        				name : response.videos[i].name
+        			});
+        		}
+
+        		mmcore.waitFor(function () {
+        			return document.getElementById('recommended-reads-container');
+        		}).done(function () {
+        			$('body').addClass('mm-t27-recommends-cnt-exist');
+        		});
+
+        		$('.mm-t27-video-template').prepend(html);
+        	};
+        	$.ajax({
+        		url : 'https://api.brightcove.com/services/library',
+        		dataType : 'jsonp',
+        		data : {
+        			command : 'find_playlist_by_id',
+        			playlist_id : mmcore.T27_data_article.playlist_id,
+        			token : '5Z03lJa7SS_VFBZhxLcJLHEgP4VR0Fm_U9vybrlcUPiFHSAMqAYhcQ..',
+        			video_fields : 'id,name,thumbnailURL'
+        		},
+        		jsonpCallback : 'mmcore.T27.renderVideo'
+        	});
+        });
+    })();
+
+}catch(err){mmcore.EH(err);}
+if(el && typeof el.innerHTML!='undefined')el.innerHTML=mm_inner_HTML;});mmcore.HideMaxyboxes('A_VideosT27');mmcore._RenderOnLoad();if(typeof mmcore._callback=='object'&&typeof mmcore._callback[4]=='function'){try{mmcore._callback[4]();}catch(err){mmcore.EH(err);}
+finally{mmcore._callback[4]=null;}}
+})();

@@ -1,0 +1,75 @@
+mmcore.SetCookie('mmid','2102735648|AgAAAArcEKjqww0AAA==',365,1);mmcore.SetCookie('pd','2102735648|AgAAAArcEKjqww0AAA==',365);mmcore.SetCookie('srv','ldnvwcgeu13',365);(function(){mmcore.custAttrs = {};if(typeof(mmcore.GenInfo)!='object')mmcore.GenInfo={};mmcore.EH=function(e){var s=e.message+'\r\n';if(!window.mm_error)window.mm_error=s;else window.mm_error+=s;};
+mmcore.GenInfo['VC79HideRegisterLink']={'link':'hideregister','matrix':'subspsp'};
+var tc={'Link':{'h':[],'c':[],'l':[]}}
+mmcore.AttachStyle=function(t){if(document.body){var s=document.createElement('style');s.type='text/css';if(/WebKit|MSIE/i.test(navigator.userAgent)){if(s.styleSheet){s.styleSheet.cssText=t;}else{s.innerText=t;}}else{s.innerHTML=t;}document.getElementsByTagName('head')[0].appendChild(s);}else{document.write('<style type="text/css">'+t+'</style>');}}
+tc['Link'].c.push(unescape('#ftLogin a[href=%27http:%2F%2Fregistration.ft.com%2Fregistration%2Fsubscription-' + 
+ 'service%2Fsignuppsp?segid=70009%27] {  display: none !important;}#ftLogi' + 
+ 'n a[href=%27http:%2F%2Fregistration.ft.com%2Fregistration%2Fsubscription' + 
+ '-service%2Fsignuppsp?segid=70009%27] + a {  background: none !important;}'));
+try{
+// Maxymiser Core - Attach Style v0.0.0 http://gitlab.maxymiser.net/gts/mmcore-attach-style/tree/master
+(function(){'use strict';mmcore.AttachStyle=function(){var c={STYLE_ID:"mm-style",createStyle:function(){var b=document.createElement("style");b.type="text/css";return b},appendCssToStyle:function(){var b,a;"styleSheet"in c.createStyle()?(b=function(a){return a.styleSheet.cssText},a=function(a,b){a.styleSheet.cssText=b}):(b=function(a){return a.innerHTML},a=function(a,b){a.innerHTML=b});return(c.appendCssToStyle=function(c,d){a(d,b(d)+c)}).apply(this,arguments)}};return function(b){var a=document.getElementById(c.STYLE_ID);a||(a=c.createStyle(),a.id=c.STYLE_ID,function(){this.parentNode.insertBefore(a,this)}.call(document.getElementsByTagName("head")[0].lastChild));c.appendCssToStyle(b,a)}}()})();
+}catch(err){mmcore.EH(err);}
+try{
+/**
+ * 11.09.2014
+ * Track all campaigns automatically
+ * A. Tytskiy
+ *
+ * Dependencies: [Plugin_Essentials.js:mmcore.waitFor,
+ * 				  Plugin_Helpers.js:mmcore.helpers]
+ */
+(function (mmcore) {
+	'use strict';
+
+	var TIMEOUT = 8000;
+	var track = function () {
+
+		mmcore.ijento = mmcore.ijento || {};
+
+		mmcore.AddDocLoadHandler(function () {
+			if (!mmcore.GenInfo || !mmcore.waitFor) {
+				return;
+			}
+
+			if (mmcore.helpers && window.si && window.si.sendAdditionalTracer) {
+				mmcore.helpers.iJentoTag();
+			} else {
+				mmcore
+					.waitFor(function () {
+						return mmcore.helpers && window.si && window.si.sendAdditionalTracer;
+					}, { isNotStoppedOnDocumentReadiness: true, timeout: TIMEOUT })
+					.done(function () {
+						mmcore.helpers.iJentoTag();
+					});
+			}
+		});
+	};
+
+	track();
+	track = null;
+}(window.mmcore));
+
+}catch(err){mmcore.EH(err);}
+try{
+// Delayed action (Used when the user is going to a new pages containing mmcore.js)
+mmcore.AddDocLoadHandler( function() {
+    $('a[href$="http://registration.ft.com/registration/subscription-service/bpsp?segid=70152"]:contains("Subscribe")').click( function() { 
+			mmcore.$Action('VC79SubscribeClicks', '1');
+    });
+
+});
+
+mmcore.AddDocLoadHandler( function() {
+    $('a[href$="http://registration.ft.com/registration/subscription-service/signuppsp?segid=70009&ftcamp=tr"]:contains("Subscribe")').click( function() { 
+			mmcore.$Action('VC79SubscribeClicks', '1');
+    });
+
+});
+
+
+
+}catch(err){mmcore.EH(err);}
+var gs='';for(var i in tc)gs+=tc[i].c.join('');mmcore.AttachStyle(gs);mmcore._AddRenderer('Link',function(){var el=mmcore.GetMaxyboxNode('Link');var mm_inner_HTML='';if(el && typeof el.innerHTML!='undefined')el.innerHTML=mm_inner_HTML;});mmcore.HideMaxyboxes('Link');mmcore._RenderOnLoad();if(typeof mmcore._callback=='object'&&typeof mmcore._callback[3]=='function'){try{mmcore._callback[3]();}catch(err){mmcore.EH(err);}
+finally{mmcore._callback[3]=null;}}
+})();

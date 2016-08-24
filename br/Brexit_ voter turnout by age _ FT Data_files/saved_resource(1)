@@ -1,0 +1,554 @@
+mmcore.SetCookie('mmid','2102735648|AgAAAArcEKjqww0AAA==',365,1);mmcore.SetCookie('pd','2102735648|AgAAAArcEKjqww0AAA==',365);mmcore.SetCookie('srv','ldnvwcgeu13',365);(function(){mmcore.custAttrs = {};if(typeof(mmcore.GenInfo)!='object')mmcore.GenInfo={};mmcore.EH=function(e){var s=e.message+'\r\n';if(!window.mm_error)window.mm_error=s;else window.mm_error+=s;};
+mmcore.GenInfo['T31_Master']={'element1':'t31_sliderslioneldesign'};
+try{
+// Maxymiser Core - Attach Style v0.0.0 http://gitlab.maxymiser.net/gts/mmcore-attach-style/tree/master
+(function(){'use strict';mmcore.AttachStyle=function(){var c={STYLE_ID:"mm-style",createStyle:function(){var b=document.createElement("style");b.type="text/css";return b},appendCssToStyle:function(){var b,a;"styleSheet"in c.createStyle()?(b=function(a){return a.styleSheet.cssText},a=function(a,b){a.styleSheet.cssText=b}):(b=function(a){return a.innerHTML},a=function(a,b){a.innerHTML=b});return(c.appendCssToStyle=function(c,d){a(d,b(d)+c)}).apply(this,arguments)}};return function(b){var a=document.getElementById(c.STYLE_ID);a||(a=c.createStyle(),a.id=c.STYLE_ID,function(){this.parentNode.insertBefore(a,this)}.call(document.getElementsByTagName("head")[0].lastChild));c.appendCssToStyle(b,a)}}()})();
+}catch(err){mmcore.EH(err);}
+try{
+/**
+ * 05.11.2014
+ * Track article view without barrier on page
+ * Alexander Tytskiy
+ *
+ * Dependencies: ['mmcore.mediator', 'mmcore.request']
+ */
+(function () {
+    'use strict';
+
+    var mmcore = window.mmcore;
+    var hostname = window.location.hostname;
+
+    // don't waste time on registration/subscription domains
+    if (hostname.indexOf('registration.ft.com') > -1 ||
+        hostname.indexOf('sub.ft.com') > -1 ||
+        hostname.indexOf('podcast.ft.com') > -1 ||
+        hostname.indexOf('video.ft.com') > -1) {
+        return;
+    }
+
+    // helper
+    var arrayForEach = function (collection, callback) {
+        var key, len;
+
+        for (key = 0, len = collection.length; key < len; key++) {
+            callback.call(null, collection[key], key, collection);
+        }
+    };
+
+    // check that is on page <meta property="og:type" content="article">
+    var checkMetaTag = function () {
+        var metas = document.getElementsByTagName('meta');
+        var isArticleMetaTagExists = false;
+
+        arrayForEach(metas, function (tag) {
+            if (tag.content && tag.content.toLowerCase() === 'article') {
+                isArticleMetaTagExists = true;
+            }
+        });
+
+        return isArticleMetaTagExists;
+    };
+
+    var checkGoodPageURL = function () {
+        var pageHref = window.location.href;
+
+        return pageHref.indexOf('Authorised=false') < 0;
+    };
+
+    // main function
+    var track = function () {
+        if (checkMetaTag() && checkGoodPageURL()) {
+            mmcore.oncePerPageLoad(window.articleUUID, function () {
+                mmcore.SetAction('ArticleViews', 1, '');
+                mmcore.mediator.trigger('ArticleViews', {});
+                mmcore.request();
+            });
+        }
+    };
+
+    mmcore.AddDocLoadHandler(function () {
+        try {
+            track();
+        } catch (error) {
+            if (typeof mmcore.EH === 'function') {
+                mmcore.EH(new Error('Act_ArticleViews.js: Cannot track an ArticleViews action. Possible reason: ' + error));
+            }
+        }
+    });
+}());
+
+}catch(err){mmcore.EH(err);}
+try{
+/**
+ * When user reached share section by scroll, then track actions only once per page load.
+ * 06.03.2015
+ * Alexander Tytskiy
+ */
+ (function (window, mmcore) {
+ 	'use strict';
+
+ 	var tracked = false;
+
+ 	// See http://davidwalsh.name/javascript-debounce-function.
+ 	// Returns a function, that, as long as it continues to be invoked, will not
+ 	// be triggered. The function will be called after it stops being called for
+ 	// N milliseconds. If `immediate` is passed, trigger the function on the
+ 	// leading edge, instead of the trailing.
+ 	function debounce(func, wait, immediate) {
+ 		var timeout;
+ 		return function() {
+ 			var context = this,
+ 				args = arguments;
+ 			var later = function() {
+ 				timeout = null;
+ 				if (!immediate) {func.apply(context, args);}
+ 			};
+ 			var callNow = immediate && !timeout;
+ 			clearTimeout(timeout);
+ 			timeout = setTimeout(later, wait);
+ 			if (callNow) {func.apply(context, args);}
+ 		};
+ 	}
+
+ 	// Cross-browser event attaching.
+ 	var on = (function () {
+ 		var eventMethod = window.addEventListener ?
+ 			['addEventListener', ''] :
+ 			['attachEvent', 'on'];
+
+ 		return function on_(domElement, eventType, callback) {
+ 			domElement[eventMethod[0]](eventMethod[1] + eventType, function (event) {
+ 				event = event || window.event;
+
+ 				callback.call(this, event);
+ 			}, false);
+ 		};
+ 	}());
+
+ 	function isElementInVerticalViewport(el) {
+ 		var rect = el.getBoundingClientRect();
+
+ 		if (!el) {
+ 			return false;
+ 		}
+
+ 		return (
+ 			rect.top >= 0 &&
+ 			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+ 		);
+ 	}
+
+ 	var onScroll = function () {
+ 		try {
+ 			var elem = document.querySelector('#ft-new-story-tools-bottom'),
+ 				visible = isElementInVerticalViewport(elem);
+
+ 			if (visible && !tracked) {
+ 				tracked = true;
+ 				mmcore.SetAction('FullArticleRead', 1, '');
+				mmcore.mediator.trigger('FullArticleRead', {});
+ 				mmcore.request();
+
+ 				onScroll = function () {};
+ 				onEfficientScroll = function () {};
+ 			}
+ 		} catch (err) {
+ 			mmcore.EH('Act_FullArticleRead.js. Message: ' + err);
+ 		}
+ 	};
+
+ 	var onEfficientScroll = debounce(onScroll, 400);
+
+ 	function init() {
+ 		try {
+ 			on(window, 'scroll', onEfficientScroll);
+ 		} catch (err) {
+ 			mmcore.EH('Act_FullArticleRead.js. Message: ' + err);
+ 		}
+ 	}
+
+ 	mmcore.mediator.on('ArticleViews', init);
+ }(window, window.mmcore));
+
+}catch(err){mmcore.EH(err);}
+try{
+/**
+ * 11.09.2014
+ * Track all campaigns automatically
+ * A. Tytskiy
+ *
+ * Dependencies: [Plugin_Essentials.js:mmcore.waitFor,
+ * 				  Plugin_Helpers.js:mmcore.helpers]
+ */
+(function (mmcore) {
+	'use strict';
+
+	var TIMEOUT = 8000;
+	var track = function () {
+
+		mmcore.ijento = mmcore.ijento || {};
+
+		mmcore.AddDocLoadHandler(function () {
+			if (!mmcore.GenInfo || !mmcore.waitFor) {
+				return;
+			}
+
+			if (mmcore.helpers && window.si && window.si.sendAdditionalTracer) {
+				mmcore.helpers.iJentoTag();
+			} else {
+				mmcore
+					.waitFor(function () {
+						return mmcore.helpers && window.si && window.si.sendAdditionalTracer;
+					}, { isNotStoppedOnDocumentReadiness: true, timeout: TIMEOUT })
+					.done(function () {
+						mmcore.helpers.iJentoTag();
+					});
+			}
+		});
+	};
+
+	track();
+	track = null;
+}(window.mmcore));
+
+}catch(err){mmcore.EH(err);}
+try{
+//COPY FROM PREVIOUS TEST
+;
+(function T31_Checker() {
+
+	mmcore.waitFor(function () {
+		//wait for body because we are checking elements in body
+		return window.jQuery && document.readyState === "complete";
+	})
+		.done(function () {
+			function willT26BeGenerated() {
+				if (mmcore.GenInfo.T26_Master && mmcore.GenInfo.T26_Master.element1 == 't26_winbacksliders' && mmcore.GenInfo.T26_WinbackSliders) {
+					return true;
+				}
+				return false;
+			}
+
+			function isT34Generated() {
+				if (mmcore.GenInfo.T34_Master && mmcore.GenInfo.T34_Master.element1 == 't34_welcomeprogramme'
+					&& mmcore.GenInfo.T34_WelcomeProgramme) {
+					return true;
+				}
+				return false;
+			}
+
+			function willT28BeGenerated() {
+				var markerCookieValue = mmcore.GetCookie("mm_t28_flag", true),
+					markerCookieIsValid = (markerCookieValue && parseInt(markerCookieValue, 10) < 5),
+					userCookie = mmcore.GetCookie('FT_User', 1),
+					visitorID = (userCookie.match(/USERID=([^:]+)/) || [])[1],
+					isUserLoggedIn = visitorID ? true : false,
+					isHomePage = location.pathname.indexOf('/home') !== -1,
+					userType = mmcore.GetCookie('AYSC', 1).match(/PVT_27[A-Za-z0-9]{4,13}/) ? 'B2B' : 'B2C',
+					journeyType = mmcore.GetCookie('mm_t28_user_journey', 1),
+					A2WasGeneratedInThisSession = mmcore.GetCookie('mm_t28_a2_was_shown_in_this_session', 1),
+					tooltipClosed = mmcore.GetCookie('mm_t28_closed', true),
+					sawAllTooltips = Boolean(
+						mmcore.GetCookie('mm_t28_m', true) &&
+						mmcore.GetCookie('mm_t28_f', true) &&
+						mmcore.GetCookie('mm_t28_p', true) &&
+						mmcore.GetCookie('mm_t28_r', true) &&
+						mmcore.GetCookie('mm_t28_a', true));
+				if (tooltipClosed || sawAllTooltips) {
+					// Early exit to not generate as per spec.
+					return false;
+				}
+				// Hacking variable to be dependent on another rule.
+				markerCookieIsValid = Boolean(markerCookieIsValid && !tooltipClosed);
+				if ((markerCookieIsValid || mmcore.GetCookie("mm_t28_step", true)) &&
+					isHomePage &&
+					isUserLoggedIn && userType && journeyType && !A2WasGeneratedInThisSession) {
+					return true;
+				}
+			}
+
+			function getFormattedAyscCookie(ayscCookie) {
+				var arr = ayscCookie.split('_'),
+					i = arr.length,
+					AYSC = {},
+					sub = '';
+
+				while (i--) {
+					if (arr[i]) {
+						sub = arr[i].substr(0, 2);
+						AYSC[sub] = arr[i].replace(/(\d+){2}/, '');
+					}
+				}
+
+				return AYSC;
+			}
+
+			var $ = window.jQuery,
+				ayscCookie = mmcore.GetCookie('AYSC', 1),
+				isReferrer = (document.referrer && document.referrer.match(/drudgereport|yahoo/)),
+				AYSC = getFormattedAyscCookie(ayscCookie);
+
+			// campaign generation conditions
+			if (isReferrer) {
+				mmcore.SetCookie('mm_t31_delayed_by_ref', '1', 0, true);
+			}
+
+			var field47 = AYSC['47'] || '',
+				isUserLoggedIn = mmcore.GetCookie('FT_User', 1) || mmcore.GetCookie('FT_Remember', 1) || '',
+				isClosed = mmcore.GetCookie('mm_t31_slider_closed', 1),
+				isDelayed = mmcore.GetCookie('mm_t31_slider_delayed', 1),
+				isHurdleTypePresent = window.global && window.global.Hurdletype,
+				excludeFromTestPages = (location.host.indexOf('registration.ft') !== -1
+				|| location.host.indexOf('ftcorporate.ft.com') !== -1
+				|| location.host.indexOf('sub.ft') !== -1
+				|| location.host.indexOf('subscription.ft') !== -1
+				|| location.host.indexOf('sign-up-app-test.memb.ft.com') !== -1
+				|| location.href.indexOf('Authorised=false') !== -1
+				|| isHurdleTypePresent),
+				articleId = $('body').attr('data-article-uid'),
+				isLifeAndArtsPage = $('.bc').text().match('> Life&Arts') && articleId || $('.pagename').text().match('/life & arts') && articleId,
+				serveFSlider = mmcore.GetCookie('mm_t31_serve_fslider', true),
+				serveGSlider = mmcore.GetCookie('mm_t31_serve_gslider', true),
+				seenArticles = localStorage.getItem('mm_t31_articles') || '',
+				isArticleAlreadySeen = seenArticles.indexOf(articleId) !== -1,
+				isSliderCollapsed = mmcore.GetCookie('mm_t31_slider_collapsed', true),
+				willAtLeastOneSliderWillBeServed = !excludeFromTestPages
+					&& (((isSliderCollapsed && isDelayed) || !isDelayed) && !isClosed && !mmcore.GetCookie('mm_t31_delayed_by_ref', true))
+
+						//here goes definitions will at least one slider will be served
+					&& ((field47.match(/P2:FULL:GEN/g)
+					|| field47.match(/P1:FULL:GEN/g)
+					|| field47.match(/P1:TEN:GEN/g)
+					|| field47.match(/P1:TW:GEN/g)
+					|| field47.match(/B|P|R/g)) && isUserLoggedIn
+					|| serveFSlider
+					|| (serveGSlider && isLifeAndArtsPage && !isArticleAlreadySeen)),
+				isTakeaTour = location.search.indexOf('TakeaTour=Yes') !== -1,
+				isSubscribed = ayscCookie && AYSC['22'] &&
+					(AYSC['22'].indexOf('P1') !== -1 || AYSC['22'].indexOf('P2') !== -1 || AYSC['22'].indexOf('P3') !== -1),
+				isT29Generated,
+				isT6Generated,
+				isT42Generated = mmcore.GetCookie('mm_t42_generated', 1),
+				isT38Generated = mmcore.GetCookie('mm_t38_generated', 1),
+				isT25Generated = mmcore.GetCookie('mm_t25_generated', 1);
+
+			mmcore.T31Util = {};
+			setTimeout(function () {
+				isT29Generated = mmcore.GenInfo && mmcore.GenInfo.T29_ArticleRefer;
+				isT6Generated = mmcore.GenInfo.T6ArticleRefer;
+
+//don't generate if test 17 was generated
+
+				var field97 = AYSC['97'] || '';
+				if (!mmcore.GetCookie('mm_t17_b2b_slider_applied', 1)
+					&& !isReferrer
+					&& !/c/.test(field97.toLowerCase())
+					&& !isSubscribed
+					&& willAtLeastOneSliderWillBeServed
+					&& !willT28BeGenerated() && !isT6Generated && !willT26BeGenerated() && !isT29Generated
+					&& !isT34Generated()
+					&& !isTakeaTour
+					&& !isT42Generated
+					&& !isT38Generated
+					&& !isT25Generated) {
+					mmcore.SetCookie('mm_t31_generated', 'true', 0, 1);
+					mmcore.T31Util._AYSC = AYSC;
+					mmcore.T31Util.sefveFSlider = serveFSlider;
+					mmcore.T31Util.sefveGSlider = serveGSlider;
+					mmcore.request('T31');
+					mmcore.SetCookie('mm_t31_b2c_slider_applied', 1, 365, 1);
+				} else {
+					//if the slider is already shown on a non excluded page and the user reaches an excluded page
+					// we dont show, then on included page we show collapsed
+					if (mmcore.GetCookie('mm_t31_applied_var', true)
+						&& mmcore.GetCookie('mm_t31_applied_var', true) !== 'LifeAndArts'
+						&& !isDelayed
+						&& excludeFromTestPages) {
+						mmcore.SetCookie('mm_t31_slider_collapsed', '1', 0, true);
+					}
+				}
+			}, 500);
+
+
+			/*
+			 clear serve the slider on the first page the user visits that is not part of the
+			 subscription funnel, i.e. not of the type:
+			 sub.ft.com
+			 subscription.ft.com
+			 */
+			//mmcore.SetCookie('mm_t31_serve_fslider', '', -1, true);
+		});
+})();
+}catch(err){mmcore.EH(err);}
+try{
+;
+(function (mmcore) {
+	var isArticle = function () {
+			return (typeof $ === 'function' && $.cookie && $("meta[property='og:type'][content='article']").size() > 0);
+		},
+		isUserLoggedIn = function () {
+			var userCookie = mmcore.GetCookie("FT_User", true);
+			return (!!userCookie && userCookie.indexOf("USERID") > -1);
+		},
+		setAction = function (name, attr) {
+			mmcore._async = true;
+			mmcore.SetPageID("mmevents");
+			if (!attr) {
+				mmcore.SetAction(name, 1);
+			} else {
+				mmcore.SetAction(name, 1, attr);
+			}
+			mmcore.CGRequest();
+		},
+
+		isHoweredTimeout,
+
+		track = function () {
+			var $ = window.jQuery,
+				$doc = $(document),
+				wasHovered = false;
+			if (isArticle()) {
+				if (isUserLoggedIn()) {
+					var dropAuthorsHover = function () {
+						if (!$("#followOverlay").is(":visible")) {
+							wasHovered = false;
+						} else {
+							if (isHoweredTimeout) {
+								clearTimeout(isHoweredTimeout);
+							}
+							isHoweredTimeout = setTimeout(dropAuthorsHover, 500);
+						}
+					};
+
+					$doc.on("hover", ".byline a.followOverlayTrigger", function () {
+						if (wasHovered) {
+							dropAuthorsHover();
+						} else {
+							wasHovered = true;
+							setAction("AuthAlertDropdown");
+						}
+					});
+
+					/*$doc.on("mousedown", "#followOverlay .authors a.ft-button", function(e) {
+						if (e.which === 1 && !$(e.currentTarget).hasClass("ft-button-negative")) {
+							setAction("AuthAlertClicks");
+						}
+					}); */
+					$doc.on('click', '.o-author-alerts__button', function (e) {
+						if ((!e.which || e.which === 1) && /Alerting/i.test($(this).text())) {
+							setAction("AuthAlertClicks");
+						};
+					});
+
+
+				}
+			}
+		};
+
+	mmcore.waitFor(function () {
+		return typeof (jQuery) !== "undefined"
+	}, {
+		isNotStoppedOnDocumentReadiness: true,
+		timeout: 7000
+	})
+		.done(track);
+})(window.mmcore);
+}catch(err){mmcore.EH(err);}
+try{
+;(function(mmcore) {
+	var trackPageViewAction = function(){
+		mmcore.SetAction('PageViews', 1);
+		mmcore.mediator.trigger('PageViews', {});
+		mmcore.request();
+	};
+
+	if (window.addEventListener) {
+		window.addEventListener('load', trackPageViewAction);
+	} else {
+		window.attachEvent('onload', trackPageViewAction);
+	}
+})(window.mmcore);
+
+}catch(err){mmcore.EH(err);}
+try{
+//COPY FROM PREVIOUS TEST
+(function T31_HelperSubsViaSl () {
+	var host = location.host;
+	var isSubscription = host.indexOf('sub.ft.com') !== -1
+		|| host.indexOf('subscription.ft.com') !== -1
+		|| host.indexOf('registration.ft.com') !== -1
+		|| host.indexOf('sign-up-app-test.memb.ft.com') !== -1;
+	if (!isSubscription) {
+		mmcore.SetCookie('mm_t31_sub_via_slider', '1', -1, 1);
+	}
+})();
+}catch(err){mmcore.EH(err);}
+try{
+//COPY FROM PREVIOUS TEST
+;(function T31_FElementHelper () {
+	mmcore.AddDocLoadHandler(function () {
+		setTimeout(function () {
+			var barierIsPresent = location.href.indexOf('Authorised=false.html') !== -1;
+			var FT_User = mmcore.GetCookie('FT_User', 1) || mmcore.GetCookie('FT_Remember', 1) || '';
+			var host = location.host;
+			var pathname = location.pathname;
+
+			if (
+				barierIsPresent
+				|| (host.indexOf('registration.ft.com') !== -1
+				&& (pathname === '/registration/subscription-service/signuppsp'
+					|| pathname === '/registration/subscription-service/bpsp'))
+				&& !FT_User) {
+				mmcore.SetCookie('mm_t31_serve_fslider', '1', 30, true);
+			}
+		}, 100);
+	});
+
+	mmcore.mediator.on('Registrations', function () {
+		mmcore.SetCookie('mm_t31_serve_fslider', '', -1, true);
+	});
+	mmcore.mediator.on('Subscriptions', function () {
+		mmcore.SetCookie('mm_t31_serve_fslider', '', -1, true);
+	});
+})();
+}catch(err){mmcore.EH(err);}
+try{
+//COPY FROM PREVIOUS TEST
+mmcore.AddDocLoadHandler(function T31_GElementHelper () {
+	mmcore.waitFor(function () {
+		return window.jQuery;
+	}).done(function () {
+		var $ = window.jQuery,
+			articleId = $('body').attr('data-article-uid'),
+			serveGSlider = mmcore.GetCookie('mm_t31_serve_gslider', true),
+			barierIsPresent = location.href.indexOf('Authorised=false.html') !== -1,
+			isLifeAndArtsPage = $('.bc').text().match('> Life&Arts') && articleId || $('.pagename').text().match('/life & arts') && articleId;
+
+		if (!barierIsPresent && isLifeAndArtsPage) {
+			//remember which articles user seen
+			var seenArticles = localStorage.getItem('mm_t31_articles') || '[]',
+				seenArticlesArray = JSON.parse(seenArticles);
+
+			//if user not seen this article before
+			if (seenArticles.indexOf(articleId) === -1 && !serveGSlider) {
+				seenArticlesArray.push(articleId);
+				localStorage.setItem('mm_t31_articles', JSON.stringify(seenArticlesArray));
+
+				var seenLifeAndArtsPages = mmcore.GetCookie('mm_t31_seen_l_a-a', true);
+				seenLifeAndArtsPages = parseInt(seenLifeAndArtsPages || 0, 10);
+				seenLifeAndArtsPages += 1;
+
+				if (seenLifeAndArtsPages === 2) {
+					mmcore.SetCookie('mm_t31_serve_gslider', articleId, 30, true);
+					mmcore.SetCookie('mm_t31_seen_l_a-a', '', -1, true);
+				} else {
+					mmcore.SetCookie('mm_t31_seen_l_a-a', seenLifeAndArtsPages, 365, true);
+				}
+			}
+		}
+	});
+});
+}catch(err){mmcore.EH(err);}
+if(typeof mmcore._callback=='object'&&typeof mmcore._callback[2]=='function'){try{mmcore._callback[2]();}catch(err){mmcore.EH(err);}
+finally{mmcore._callback[2]=null;}}
+})();
