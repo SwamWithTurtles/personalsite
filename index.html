@@ -2,16 +2,20 @@
 <html>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-74115451-1', 'auto');
-  ga('send', 'pageview');
-
-
-
+    ga('create', 'UA-74115451-1', 'auto');
+    ga('send', 'pageview');
 
 
 </script>
@@ -60,8 +64,16 @@
                     <a height="350px" class="twitter-timeline" href="https://twitter.com/SwamWithTurtles"
                        data-widget-id="569575925877317632">Tweets by @SwamWithTurtles</a>
                     <script>
-                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-
+                        !function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0],
+                                p = /^http:/.test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + "://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");
 
 
                     </script>
@@ -76,15 +88,13 @@
                 <div class="pure-u-1">
                     <div class="pure-u-1 pure-u-md-4-5 biog-text">
                         <h2>Coder</h2>
-                        <p>I'm currently between jobs, having left Softwire after four years, where I lead technical and consulting
-                            teams, with a heavy emphasis on mentoring and client-focused delviery of projects.
-                            I've worked mostly on web applications in a range of languages including C#, Java and
-                            Javascript.</p>
-                        <p>My next challenge will be undertaking a consultancy role at GraphAware, working to bring
-                            Neo4j and Graphs to a wider range of companies.</p>
-                        <p>I code a lot in my spare time, including at various hackathons. I love consuming technologies
-                            old and new, and have a particular passion for databases (given my background in
-                            Statistics).</p>
+                        <p>I'm a software developer. I've worked on web applications in the past, and though I'm happy
+                            to dive into anything new, I'm most familiar with Java, JavaScript and SQL/NoSQL databases.
+                        </p>
+                        <p>I have worked as a developer, technical lead, trainer and consultant at a range of clients,
+                            representing Softwire (high-quality bespoke software) and GraphAware (NoSQL consultancy
+                            specialising in Neo4j). I am currently a freelance developer always interested in hearing
+                            about upcoming projects and opportunities.</p>
                         <p>You can often find me at conferences discussing all I've found out - there is <a
                                 href="#talks">a list of upcoming talks</a> as well as videos of my previous talks.</p>
                         <p><a href="resources/ds-cv.pdf"><b>View my CV</b></a></p>
@@ -128,7 +138,7 @@
                         <h2>Hobbies</h2>
                         <p>On top of all the above, I also love:</p>
                         <ul>
-                            <li>Jogging, especially long-distance obstacles courses such as Tough Mudder</li>
+                            <li>Cycling</li>
                             <li>Cooking (I whip up a mean seven-course dinner)</li>
                             <li>Watching theatre and hunting out immersive theatre experiences</li>
                             <li>Body paint</li>
@@ -240,7 +250,7 @@
 </div>
 
 <script>
-    Array.prototype.contains = function(obj) {
+    Array.prototype.contains = function (obj) {
         var i = this.length;
         while (i--) {
             if (this[i] === obj) {
@@ -251,15 +261,17 @@
     }
 
 
-    var filterTalksList = function(talk) {
-                if(viewModel.filter() == "") { return true;}
+    var filterTalksList = function (talk) {
+        if (viewModel.filter() == "") {
+            return true;
+        }
 
-                return talk.tags.contains(viewModel.filter());
-            };
+        return talk.tags.contains(viewModel.filter());
+    };
 
     var viewModel = {
         talks: ko.observableArray([
-        {
+            {
                 title: "Choosing the Right Database",
                 image: "choose-db.png",
                 tags: ["Architecture", "Neo4j"],
@@ -267,15 +279,13 @@
                 links: [{
                     url: "https://www.youtube.com/watch?v=WR6TQfuxwDk",
                     description: "BrisTech, Oct 2015"
-                },
-								{
-										url: "https://vimeo.com/113621016",
-										description: "New Developer Conference, Nov 2014"
-								},
-								{
-										url: "https://www.dotnetrocks.com/default.aspx?showNum=1085",
-										description: ".NET Rocks Recoding, Jan 2015"
-								}]
+                }, {
+                    url: "https://vimeo.com/113621016",
+                    description: "New Developer Conference, Nov 2014"
+                }, {
+                    url: "https://www.dotnetrocks.com/default.aspx?showNum=1085",
+                    description: ".NET Rocks Recoding, Jan 2015"
+                }]
             },
             {
                 title: "When It's Wrong to be Right",
@@ -287,44 +297,50 @@
                     description: "SoftCon, Apr 2014"
                 }]
             },
-                        {
+            {
                 title: "Statistical Programming in JavaScript",
                 image: "statistical-programming.png",
                 tags: ["Statistics", "Front-End"],
                 description: "<p>Almost every application needs data to function - and if you don't know how to be nice to your data, then things will start to go wrong.</p><p>The talk discusses some statistical theory, and the wide range of libraries that allow you to implement that in the front-end of your system.</p>",
-                links: []
+                links: [{
+                    url: "https://www.youtube.com/watch?v=dDHxEqbJUGg",
+                    description: "JSConfUY, Apr 2016"
+                }]
             },
-						{
-								title: "Graph Theory in Practise",
-								image: "graph-theory.png",
-								tags: ["Statistics", "Neo4j"],
-								description: "<p>The power of graphs (that is, networks of nodes and edges) is starting to be realised in databases such as neo4j. This talk looks at solving software problems with graphs by utilising theories from the academic world, looking at case studies of domains and problems that can be solved using these approaches, and how we can implement them.</p>",
-								links: [{
-									url: "https://www.youtube.com/watch?v=-dV-ToosfRY",
-									description: "GraphConnect London, May 2015"
-								}]
-						},
-						{
-								title: "Decoupled APIs through Microservices",
-								image: "microservices.png",
-								tags: ["Architecture"],
-								description: "<p>This talk introduces microservices as a tool in an API developer's arsenal. We'll introduce what they are, see how and why they could fit into a modern application (and when they may not), and tools that will make dealing with a microservices architecture easier than ever before.</p>",
-								links: [{
-										url: "https://www.youtube.com/watch?v=4Hjw0-WZG24",
-										description: "APIStrat Berlin, Apr 2015"
-								}]
-						},
-					{
-						title: "High-Quality Front End",
-						image: "front-end.png",
-						tags: ["Architecture", "Front-End"],
-						description: "<p>This talk aims to introduce and discuss how to implement modularisation, functional idioms and testing in JavaScript in an idiomatic way, to allow you to code JavaScript to a higher quality and, ultimately, more sustainably.</p>",
-						links: [ {
-						    url: "https://vimeo.com/155377220",
-						    description: "New Developer Conference, Jan 2016"
-						}]
-					},
-					{
+            {
+                title: "Graph Theory in Practise",
+                image: "graph-theory.png",
+                tags: ["Statistics", "Neo4j"],
+                description: "<p>The power of graphs (that is, networks of nodes and edges) is starting to be realised in databases such as neo4j. This talk looks at solving software problems with graphs by utilising theories from the academic world, looking at case studies of domains and problems that can be solved using these approaches, and how we can implement them.</p>",
+                links: [{
+                    url: "https://www.youtube.com/watch?v=-dV-ToosfRY",
+                    description: "GraphConnect London, May 2015"
+                }]
+            },
+            {
+                title: "Decoupled APIs through Microservices",
+                image: "microservices.png",
+                tags: ["Architecture"],
+                description: "<p>This talk introduces microservices as a tool in an API developer's arsenal. We'll introduce what they are, see how and why they could fit into a modern application (and when they may not), and tools that will make dealing with a microservices architecture easier than ever before.</p>",
+                links: [{
+                    url: "https://www.youtube.com/watch?v=4Hjw0-WZG24",
+                    description: "APIStrat Berlin, Apr 2015"
+                }, {
+                    url: "https://www.infoq.com/presentations/api-microservices-tools",
+                    description: "ProgsCon London, Apr 2016"
+                }]
+            },
+            {
+                title: "High-Quality Front End",
+                image: "front-end.png",
+                tags: ["Architecture", "Front-End"],
+                description: "<p>This talk aims to introduce and discuss how to implement modularisation, functional idioms and testing in JavaScript in an idiomatic way, to allow you to code JavaScript to a higher quality and, ultimately, more sustainably.</p>",
+                links: [{
+                    url: "https://vimeo.com/155377220",
+                    description: "New Developer Conference, Jan 2016"
+                }]
+            },
+            {
                 title: "Choose Your Words Wisely",
                 image: "choose-your-words.png",
                 tags: ["UX", "Front-End"],
@@ -335,53 +351,73 @@
                 }]
             }]),
         lightningTalks: [
-            {title: "The A-Z of the Java Ecosystem", url: "https://www.youtube.com/watch?v=A6T968mcYAw", tags: ["Java", "Lightning Talk"]},
-            {title: "The UX Factor", url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/", tags: ["UX", "Lightning Talk"]},
-            {title: "Modelling Election Data with Neo4j", url: "http://www.slideshare.net/DavidSimons5/koln-neo4j", tags: ["Neo4j", "Case Studies", "Lightning Talk"]},
-            {title: "Rapid App Development with MeteorJS", url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/", tags: ["Front-End", "Lightning Talk"]}
+            {
+                title: "The A-Z of the Java Ecosystem",
+                url: "https://www.youtube.com/watch?v=A6T968mcYAw",
+                tags: ["Java", "Lightning Talk"]
+            },
+            {
+                title: "The UX Factor",
+                url: "http://www.softwire.com/blog/2014/12/15/lightning-talks-the-ux-factor/",
+                tags: ["UX", "Lightning Talk"]
+            },
+            {
+                title: "Modelling Election Data with Neo4j",
+                url: "http://www.slideshare.net/DavidSimons5/koln-neo4j",
+                tags: ["Neo4j", "Case Studies", "Lightning Talk"]
+            },
+            {
+                title: "Rapid App Development with MeteorJS",
+                url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/",
+                tags: ["Front-End", "Lightning Talk"]
+            }
         ],
-        upcomingTalks: [
-			{ title: "Recommendation Engines @ BrisTech (05/05/16)", url: "http://www.meetup.com/bristech/events/228970926/", tags: ["Statistics", "Neo4j", "Architecture"] }
-        ],
+        upcomingTalks: [],
         filter: ko.observable(""),
         tags: ko.computed({
-            read: function() {
+            read: function () {
                 var upcomingTalks = viewModel.upcomingTalks;
                 var lightningTalks = viewModel.lightningTalks;
                 var talks = viewModel.talks();
 
                 return _.union(
-                    _.flatten(_.map(upcomingTalks, function(t) {return t.tags})),
-                    _.flatten(_.map(lightningTalks, function(t) {return t.tags})),
-                    _.flatten(_.map(talks, function(t) {return t.tags}))
+                    _.flatten(_.map(upcomingTalks, function (t) {
+                        return t.tags
+                    })),
+                    _.flatten(_.map(lightningTalks, function (t) {
+                        return t.tags
+                    })),
+                    _.flatten(_.map(talks, function (t) {
+                        return t.tags
+                    }))
                 );
             },
             deferEvaluation: true
         }),
 
         filteredTalks: ko.computed({
-            read: function() {
+            read: function () {
                 return _.filter(viewModel.talks(), filterTalksList);
             },
             deferEvaluation: true
         }),
 
         filteredLightningTalks: ko.computed({
-            read: function() {
+            read: function () {
                 return _.filter(viewModel.lightningTalks, filterTalksList);
             },
             deferEvaluation: true
         }),
 
         filteredUpcomingTalks: ko.computed({
-            read: function() {
+            read: function () {
                 return _.filter(viewModel.upcomingTalks, filterTalksList);
             },
             deferEvaluation: true
         }),
 
-        addTag: function(tag) {
-            if(viewModel.filter() === tag) {
+        addTag: function (tag) {
+            if (viewModel.filter() === tag) {
                 viewModel.filter("")
             } else {
                 viewModel.filter(tag)
@@ -392,8 +428,6 @@
     pager.extendWithPage(viewModel);
     ko.applyBindings(viewModel);
     pager.start();
-
-
 
 
 </script>
