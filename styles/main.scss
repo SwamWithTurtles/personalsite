@@ -1,0 +1,168 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "_colors";
+@import "_form";
+@import "_fonts";
+
+$base-font-size: 1em;
+
+@media
+screen and (max-width: 620px),
+screen and (max-width: 999px) and (-webkit-min-device-pixel-ratio: 1.5) and ( max-device-width: 1280px ) and (max-device-height: 720px),
+screen and (max-width: 999px) and (-webkit-min-device-pixel-ratio: 1.5) and ( max-device-width: 1000px )
+{
+
+  h1 {
+    font-size: 8em;
+  }
+
+  body {
+    -webkit-text-size-adjust: 200%;
+    max-width: 100%;
+  }
+
+  .picture-stripe {
+    display: flex !important;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .cover-stripe {
+    background: black !important;
+  }
+
+  .pop-in {
+    width: 100% !important;
+  }
+}
+
+.navbar-dark {
+  background-color: $dark-color2;
+  border-bottom: 1px solid $dark-color1;
+
+  .nav-item {
+    color: $light-color !important;
+
+    &.active {
+      color: $accent-color !important;
+    }
+
+  }
+}
+
+body {
+  background-color: $dark-color1;
+}
+
+a.main-link {
+  color: $light-color;
+  text-decoration: underline;
+
+}
+
+.picture-stripe {
+  display: none;
+}
+
+.cover-stripe {
+  color: $light-color;
+  padding: 40px;
+  background: url("../../dist/media/rock.jpg") no-repeat;
+  background-size: 100%;
+  width: auto;
+
+  .pop-in {
+    display: inline-block;
+    background-color: $dark-color1;
+    width: 40%;
+    margin-left: auto;
+    margin-right: 40px;
+    padding: 15px;
+
+    text-align: center;
+  }
+}
+
+.first-stripe {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.even-stripe {
+  background-color: $dark-color2;
+  color: $light-color;
+
+  .card {
+    color: $dark-color1;
+  }
+}
+
+.odd-stripe {
+  background-color: $light-color;
+  color: $dark-color2;
+}
+
+.column-padded {
+  margin: auto;
+  padding: 30px;
+
+  &.picture-holder {
+    text-align: center;
+  }
+}
+
+h1 {
+  font-family: 'CustomFont', cursive;
+  color: $accent-color;
+  font-size: 8vw;
+}
+
+h2 {
+  color: $accent-color;
+  font-size: 2.5em;
+  font-weight: bolder;
+}
+
+strong {
+  color: $accent-color;
+}
+
+ul.list-group {
+  background-color: transparent;
+  border: 0;
+
+  text-align: left;
+
+  list-style-type: circle;
+
+  .list-group-item {
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    border-color: $accent-color;
+    border-style: solid;
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0
+    }
+  }
+}
+
+iframe {
+  height: 300px;
+  width: 75%;
+}
+
+img {
+  width: 75%;
+}
+
+textarea {
+  width: 100%;
+  height: 8em;
+}
+
+button {
+  border-color: grey !important;
+}

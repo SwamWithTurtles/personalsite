@@ -1,0 +1,107 @@
+// The code is a bit of a mess at the moment! Sorry about that.
+
+input[type="radio"] {
+  display: none;
+  &:not(:disabled) ~ label {
+    cursor: pointer;
+  }
+  &:disabled ~ label {
+    color: hsla(150, 5%, 75%, 1);
+    border-color: hsla(150, 5%, 75%, 1);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.options {
+
+
+  label.fancy-button {
+    display: block;
+    background: $dark-color1;
+    border: 1px solid;
+    border-left-width: 0;
+
+    padding: 1rem;
+    margin-bottom: 1rem;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    width: 90%;
+
+    &:first-of-type {
+      border-radius: 10px 0 0 10px;
+      border-left-width: 1px;
+    }
+
+    &:last-of-type {
+      border-radius: 0 10px 10px 0;
+    }
+
+    @media
+    screen and (max-width: 576px)
+    {
+
+      border-width: 1px 1px 0 1px;
+      margin: 0;
+
+      &:first-of-type {
+        border-radius: 10px 10px 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 0 10px 10px;
+        border-bottom-width: 1px;
+      }
+    }
+  }
+
+  input[type="radio"]:checked + label {
+
+    color: $dark-color2;
+    background-color: $light-color;
+    border: 1px solid $light-color;
+
+    &::after {
+      font-size: 90%;
+      color: $light-color;
+      border: 0px;
+      content: "\2713";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 50%;
+      background: $dark-color2;
+      box-shadow: 0px 2px 5px -2px $dark-color2;
+
+
+      @media
+      screen and (max-width: 620px),
+      screen and (max-width: 999px) and (-webkit-min-device-pixel-ratio: 1.5) and ( max-device-width: 1280px ) and (max-device-height: 720px),
+      screen and (max-width: 999px) and (-webkit-min-device-pixel-ratio: 1.5) and ( max-device-width: 1000px )
+      {
+        line-height: 15px;
+        font-size: 50%;
+      }
+
+
+    }
+  }
+}
+
+
+
+@media
+screen and (max-width: 620px),
+screen and (max-width: 999px) and (-webkit-min-device-pixel-ratio: 1.5) and ( max-device-width: 1280px ) and (max-device-height: 720px),
+screen and (max-width: 999px) and (-webkit-min-device-pixel-ratio: 1.5) and ( max-device-width: 1000px )
+{
+  section {
+    flex-direction: column;
+  }
+}

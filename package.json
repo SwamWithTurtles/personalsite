@@ -1,0 +1,21 @@
+{
+  "name": "wedding",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-open": "^0.2.3",
+    "grunt-serve": "^0.1.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Simons <david@swamwithturtles.com> (http://www.swamwithturtles.com)",
+  "description": ""
+}
