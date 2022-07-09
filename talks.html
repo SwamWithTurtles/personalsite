@@ -43,7 +43,7 @@
 
     <div class="row odd-stripe">
         <div class="column-padded col-lg-5  picture-holder">
-            <img src="dist/media/dolphin.jpg" alt="SOME SEXY MEN"/>
+            <img src="dist/media/dolphin.jpg" alt="David Simons (with Dolphin)"/>
         </div>
         <div class="column-padded col-lg-7 ">
             <h2>Conference Talks</h2>
@@ -142,6 +142,7 @@
             {
                 title: "Choosing the Right Database",
                 image: "choose-db.png",
+                date: Date.parse("2015-10-01"),
                 tags: ["Architecture", "Data"],
                 description: "<p>It is no longer taken as a given that a traditional RDBMS will back your software. This talk hopes to examine the thought-provoking questions you should ask about your database (e.g. around scalability, data models and consistency).</p>",
                 links: [{
@@ -158,6 +159,7 @@
             {
                 title: "When It's Wrong to be Right",
                 image: "nondeterminism.png",
+                date: Date.parse("2014-04-01"),
                 tags: ["Statistics"],
                 description: "<p>As we work with bigger data and want faster results, the software world has to turn to new flavours of algorithms. This talk works as an introduction to non-deterministic algorithms with examples from real-time analytics, NoSQL and academia to examine why and how unpredictability has been used on modern systems.</p>",
                 links: [{
@@ -167,6 +169,7 @@
             },
             {
                 title: "Statistical Programming in JavaScript",
+                date: Date.parse("2016-04-01"),
                 image: "statistical-programming.png",
                 tags: ["Statistics", "Front-End"],
                 description: "<p>Almost every application needs data to function - and if you don't know how to be nice to your data, then things will start to go wrong.</p><p>The talk discusses some statistical theory, and the wide range of libraries that allow you to implement that in the front-end of your system.</p>",
@@ -177,6 +180,7 @@
             },
             {
                 title: "Graph Theory in Practise",
+                date: Date.parse("2015-05-01"),
                 image: "graph-theory.png",
                 tags: ["Statistics", "Data"],
                 description: "<p>The power of graphs (that is, networks of nodes and edges) is starting to be realised in databases such as neo4j. This talk looks at solving software problems with graphs by utilising theories from the academic world, looking at case studies of domains and problems that can be solved using these approaches, and how we can implement them.</p>",
@@ -187,6 +191,7 @@
             },
             {
                 title: "Decoupled APIs through Microservices",
+                date: Date.parse("2016-04-01"),
                 image: "microservices.png",
                 tags: ["Architecture"],
                 description: "<p>This talk introduces microservices as a tool in an API developer's arsenal. We'll introduce what they are, see how and why they could fit into a modern application (and when they may not), and tools that will make dealing with a microservices architecture easier than ever before.</p>",
@@ -200,6 +205,7 @@
             },
             {
                 title: "High-Quality Front End",
+                date: Date.parse("2016-01-01"),
                 image: "front-end.png",
                 tags: ["Architecture", "Front-End"],
                 description: "<p>This talk aims to introduce and discuss how to implement modularisation, functional idioms and testing in JavaScript in an idiomatic way, to allow you to code JavaScript to a higher quality and, ultimately, more sustainably.</p>",
@@ -210,6 +216,7 @@
             },
             {
                 title: "Choose Your Words Wisely",
+                date: Date.parse("2015-02-01"),
                 image: "choose-your-words.png",
                 tags: ["UX", "Front-End"],
                 description: "<p>A lot of thought has already gone in to many aspects of UX, but we're still a little behind the times whilst thinking about the words that we use. In this talk, I'll discuss some of the ways that our words can influence people, and how we can leverage that in our work to make our software work for both our end-users, and ultimately, ourselves.</p>",
@@ -220,16 +227,18 @@
             },
         {
                 title: "An Interview with Venturi's Voice: Managing Data Teams during COVID",
+                date: Date.parse("2022-01-01"),
                 image: "venturi.png",
                 tags: ["Management"],
                 description: "<p>I was invited to speak to Venturi's Voice, a technology leadership podcast. The questions were wide-ranging, but covered the landscape for data and software leadership in a post-pandemic world.</p>",
                 links: [{
                     url: "https://pod.co/venturis-voice-technology-leadership-staffing-career-innovation/data-architecture-patterns-conways-law-david-simons-kaluza",
-                    description: "BrisTech, Feb 2015"
+                    description: "Podcast Recording, January 2022"
                 }]
             },
         {
                 title: "Data Modelling at Scale",
+                date: Date.parse("2020-06-01"),
                 image: "modelling.png",
                 tags: ["Architecture", "Data"],
                 description: "<p>Data Modelling is an important tool in the toolbox of a developer. By building and communicating a shared understanding of the domain they're working with, their applications and APIs are more useable and maintainable. However, as you scale up your technical teams, how do you keep these benefits whilst avoiding time-consuming meetings every time something new comes along?</p>",
@@ -290,7 +299,7 @@
 
         filteredTalks: ko.computed({
             read: function () {
-                return _.filter(viewModel.talks(), filterTalksList);
+                return _.filter(viewModel.talks(), filterTalksList).sortBy(["date"]);
             },
             deferEvaluation: true
         }),
