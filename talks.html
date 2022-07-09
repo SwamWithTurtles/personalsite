@@ -299,7 +299,9 @@
 
         filteredTalks: ko.computed({
             read: function () {
-                return _.filter(viewModel.talks(), filterTalksList).sortBy(["date"]);
+                const filtered = _.filter(viewModel.talks(), filterTalksList);
+                const sorted = _.sortBy(filtered, ["date"]);
+                return sorted;
             },
             deferEvaluation: true
         }),
