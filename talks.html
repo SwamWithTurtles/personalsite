@@ -47,7 +47,7 @@
         </div>
         <div class="column-padded col-lg-7 ">
             <h2>Conference Talks</h2>
-            <p>I am an experienced talker, and love to bring this experience to wider audiences at meet-ups and wider conferences. A selection of my prior talks are below. If you are interested in having me speak at your event, please reach out.</p>
+            <p>I am an experienced talker, and love to bring my experiences to wider audiences at meet-ups and conferences. A selection of my prior talks are below. If you are interested in having me speak at your event, please reach out.</p>
 
             <b>Filter by Tag:</b>
             <div class="btn-group" role="group" data-bind="foreach: tags">
@@ -300,7 +300,7 @@
         filteredTalks: ko.computed({
             read: function () {
                 const filtered = _.filter(viewModel.talks(), filterTalksList);
-                const sorted = _.sortBy(filtered, ["date"]);
+                const sorted = _.orderBy(filtered, ["date"], ["desc"]);
                 return sorted;
             },
             deferEvaluation: true
