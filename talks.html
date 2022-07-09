@@ -152,7 +152,7 @@
                     description: "New Developer Conference, Nov 2014"
                 }, {
                     url: "https://www.dotnetrocks.com/default.aspx?showNum=1085",
-                    description: ".NET Rocks Recoding, Jan 2015"
+                    description: ".NET Rocks Recording, Jan 2015"
                 }]
             },
             {
@@ -217,6 +217,26 @@
                     url: "https://www.youtube.com/watch?v=v1Ktiq-9i8o",
                     description: "BrisTech, Feb 2015"
                 }]
+            },
+        {
+                title: "An Interview with Venturi's Voice: Managing Data Teams during COVID",
+                image: "choose-your-words.png",
+                tags: ["Management"],
+                description: "<p>I was invited to speak to Venturi's Voice, a technology leadership podcast. The questions were wide-ranging, but covered the landscape for data and software leadership in a post-pandemic world.</p>",
+                links: [{
+                    url: "https://pod.co/venturis-voice-technology-leadership-staffing-career-innovation/data-architecture-patterns-conways-law-david-simons-kaluza",
+                    description: "BrisTech, Feb 2015"
+                }]
+            },
+        {
+                title: "Data Modelling at Scale",
+                image: "choose-your-words.png",
+                tags: ["Architecture", "Data"],
+                description: "<p>Data Modelling is an important tool in the toolbox of a developer. By building and communicating a shared understanding of the domain they're working with, their applications and APIs are more useable and maintainable. However, as you scale up your technical teams, how do you keep these benefits whilst avoiding time-consuming meetings every time something new comes along?</p>",
+                links: [{
+                    url: "https://www.slideshare.net/DavidSimons5/data-modelling-at-scale",
+                    description: "Slide Deck for Kafka Meetup 2020 (Video Unavailable)"
+                }]
             }]),
         lightningTalks: [
             {
@@ -238,13 +258,14 @@
                 title: "Rapid App Development with MeteorJS",
                 url: "http://www.softwire.com/blog/2014/02/13/lightning-talks-speedy-app-development-with-meteor/",
                 tags: ["Front-End", "Lightning Talk"]
+            },
+            {
+                title: "Why, sometimes I've reviewed as many as four architectural patterns by breakfast",
+                url: "https://www.slideshare.net/DavidSimons5/four-architectural-patterns",
+                tags: ["Architecture", "Lightning Talk"]
             }
         ],
-        upcomingTalks: [{
-            title: "Kafka as a Service, 27th/28th April @ Kafka Summit",
-            url: "https://kafka-summit.org/events/kafka-summit-london-2020/",
-            tags: ["Architecture", "Data", "Case Studies"]
-        }],
+        upcomingTalks: [],
         filter: ko.observable(""),
         tags: ko.computed({
             read: function () {
